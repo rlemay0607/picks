@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
     <link rel="shortcut icon" href="images/favicon.png">
-    <title>Readable - HTML Template</title>
+    <title>Weekly Picks</title>
 
     <!-- Custom styles for this template -->
 
