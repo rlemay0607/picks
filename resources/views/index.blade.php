@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
     <link rel="shortcut icon" href="images/favicon.png">
-    <title>NFL Weekly Picks</title>
+    <title>Readable - HTML Template</title>
 
     <!-- Custom styles for this template -->
 
@@ -37,10 +36,12 @@
         })();
     </script>
 </head>
+<!-- header -->
+
 <body>
 
-<!-- header -->
-@include('includes.header')
+@include('layouts.app')
+
 
 <!-- Search - Open panel -->
 
@@ -53,7 +54,7 @@
 
                     <div class="col-xs-10  col-xs-offset-1">
                         <div class="text-center">
-                        <h4>Weekly Standings</h4>
+                            <h4>Weekly Standings</h4>
                         </div>
                         <table class="table table-hover">
                             <thead>

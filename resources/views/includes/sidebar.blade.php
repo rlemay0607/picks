@@ -10,6 +10,7 @@
         </div>
         <div class="row">
             <div class="col-xs-10  col-xs-offset-1">
+                <br>
                 <h4>{{ Auth::user()->team_name }}</h4>
                 <p align="left">{{ Auth::user() -> name}}<br>
                 {{ Auth::user() -> email}}<br>

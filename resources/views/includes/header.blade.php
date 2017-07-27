@@ -18,20 +18,20 @@
                     <li> <a href="{{ route('index') }}">Home</a> </li>
 
 
-                            @if (Auth::user()-> admin=='1')
+                    @if (Auth::user()-> admin=='1')
                         <li> <a href="{{ route('home') }}">Admin</a> </li>
                     @endif
                     <li>
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
+                            Logout
+                        </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
 
 
                 </ul>
@@ -41,3 +41,6 @@
 
     </div>
 </header>
+
+
+

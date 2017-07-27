@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -51,10 +51,14 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
 
+
                         @else
+                            @if (Auth::user()-> admin=='1')
+                                <li> <a href="{{ route('home') }}">Admin</a> </li>
+                            @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->team_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -76,6 +80,7 @@
                 </div>
             </div>
         </nav>
+        @include('layouts.space')
 
         @yield('content')
     </div>
