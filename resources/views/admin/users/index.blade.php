@@ -14,6 +14,9 @@
                         Name
                     </th>
                     <th>
+                        Email
+                    </th>
+                    <th>
                         Permissions
                     </th>
                     <th>
@@ -30,7 +33,10 @@
                               <img src="{{ asset($user->avatar) }}" width="60px" height="60px" style="border-radius: 50%;">
                           </td>
                             <td>
-                                {{ $user->name }}
+                                {{ $user->team_name }}
+                            </td>
+                            <td>
+                                {{ $user->email }}
                             </td>
                             <td>
                                 @if($user->admin)
