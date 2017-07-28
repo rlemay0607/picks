@@ -26,7 +26,7 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('/nfl/profile',[
         'uses' => 'UsersController@profile',
         'as' => 'user.profile'
-    ]);
+    ])->middleware('admin');
     Route::post('/user/profile/update',[
         'uses' => 'ProfilesController@update',
         'as' => 'user.profile.update'
