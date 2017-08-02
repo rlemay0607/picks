@@ -94,10 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password">New Password</label>
-                            <input type="password" name="password" class="form-control">
-                        </div>
+
 
                         <div class="form-group">
                             <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
@@ -138,7 +135,10 @@
 
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label for="password">New Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
 
                         <div class="form-group">
                             <div class="text-center">
