@@ -96,6 +96,7 @@ class ProfilesController extends Controller
         $user->phone = $request->phone;
         $user->team_name = $request->team_name;
         $user->options = $request->options;
+        $user->avatar= $request->team;
 
         $user->save();
 

@@ -100,8 +100,43 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="avatar">Upload new avatar</label>
-                            <input type="file" name="avatar" class="form-control">
+                            <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="team">
+                                <option value="uploads/avatars/default.png" @if ($user->avatar=='uploads/avatars/default.png') selected @endif>No Team</option>
+                                <option value="uploads/avatars/Arizona_Cardinals.gif" @if ($user->avatar=='uploads/avatars/Arizona_Cardinals.gif') selected @endif>Arizona Cardinals</option>
+                                <option value="uploads/avatars/Atlanta_falcons.gif" @if ($user->avatar=='uploads/avatars/Atlanta_falcons.gif') selected @endif>Atlanata Falcons</option>
+                                <option value="uploads/avatars/Baltimore_Ravens.gif" @if ($user->avatar=='uploads/avatars/Baltimore_Ravens.gif') selected @endif>Baltimore Ravens</option>
+                                <option value="uploads/avatars/Buffalo_bills.gif" @if ($user->avatar=='uploads/avatars/Buffalo_bills.gif') selected @endif>Buffalo Bills</option>
+                                <option value="uploads/avatars/Carolina_Panthers.gif" @if ($user->avatar=='uploads/avatars/Carolina_Panthers.gif') selected @endif>Carolina Panthers</option>
+                                <option value="uploads/avatars/Chicago_Bears.gif" @if ($user->avatar=='uploads/avatars/Chicago_Bears.gif') selected @endif>Chicago Bears</option>
+                                <option value="uploads/avatars/Cincinnati_Bengals.gif" @if ($user->avatar=='uploads/avatars/Cincinnati_Bengals.gif') selected @endif>Cincinnati Bengals</option>
+                                <option value="uploads/avatars/Cleveland_Browns.gif" @if ($user->avatar=='uploads/avatars/Cleveland_Browns.gif') selected @endif>Cleveland Browns</option>
+                                <option value="uploads/avatars/Dallas_Cowboys.gif" @if ($user->avatar=='uploads/avatars/Dallas_Cowboys.gif') selected @endif>Dallas Cowboys</option>
+                                <option value="uploads/avatars/Denver_Broncos.gif" @if ($user->avatar=='uploads/avatars/Denver_Broncos.gif') selected @endif>Denver Broncos</option>
+                                <option value="uploads/avatars/Detroit_Lions.gif" @if ($user->avatar=='uploads/avatars/Detroit_Lions.gif') selected @endif>Detroit Lions</option>
+                                <option value="uploads/avatars/Greenbay_Packers.gif" @if ($user->avatar=='uploads/avatars/Greenbay_Packers.gif') selected @endif>Greenbay Packers</option>
+                                <option value="uploads/avatars/Houston_Texans.gif" @if ($user->avatar=='uploads/avatars/Houston_Texans.gif') selected @endif>Houston Texans</option>
+                                <option value="uploads/avatars/Indianapolis_Colts.gif" @if ($user->avatar=='uploads/avatars/Indianapolis_Colts.gif') selected @endif>Indianapolis Colts</option>
+                                <option value="uploads/avatars/Jacksonville_Jaguars.gif" @if ($user->avatar=='uploads/avatars/Jacksonville_Jaguars.gif') selected @endif>Jacksonville Jaguars</option>
+                                <option value="uploads/avatars/Kansas_City_Chiefs.gif" @if ($user->avatar=='uploads/avatars/Kansas_City_Chiefs.gif') selected @endif>Kansas City Chiefs</option>
+                                <option value="uploads/avatars/Los_Angeles_Chargers.gif" @if ($user->avatar=='uploads/avatars/Los_Angeles_Chargers.gif') selected @endif>Los Angeles Chargers</option>
+                                <option value="uploads/avatars/Los_Angeles_Rams.gif" @if ($user->avatar=='uploads/avatars/Los_Angeles_Rams.gif') selected @endif>Los Angeles Rams</option>
+                                <option value="uploads/avatars/Miami_Dolphins.gif" @if ($user->avatar=='uploads/avatars/Miami_Dolphins.gif') selected @endif>Miami Dolphins</option>
+                                <option value="uploads/avatars/Minnesota_Vikings.gif" @if ($user->avatar=='uploads/avatars/Minnesota_Vikings.gif') selected @endif>Minnesota Vikings</option>
+                                <option value="uploads/avatars/New_England_Patirots.gif" @if ($user->avatar=='uploads/avatars/New_England_Patirots.gif') selected @endif>New England Patirots</option>
+                                <option value="uploads/avatars/New_Orleans_Saints.gif" @if ($user->avatar=='uploads/avatars/New_Orleans_Saints.gif') selected @endif>New Orleans Saints</option>
+                                <option value="uploads/avatars/New_York_Giants.gif" @if ($user->avatar=='uploads/avatars/New_York_Giants.gif') selected @endif>New York Giants</option>
+                                <option value="uploads/avatars/New_York_Jets.gif" @if ($user->avatar=='uploads/avatars/New_York_Jets.gif') selected @endif>New York Jets</option>
+                                <option value="uploads/avatars/Oakland_Raiders.gif" @if ($user->avatar=='uploads/avatars/Oakland_Raiders.gif') selected @endif>Oakland Raiders</option>
+                                <option value="uploads/avatars/Philadelphia_Eagles.gif" @if ($user->avatar=='uploads/avatars/Philadelphia_Eagles.gif') selected @endif>Philadelphia Eagles</option>
+                                <option value="uploads/avatars/Pittsburgh_Steelers.gif" @if ($user->avatar=='uploads/avatars/Pittsburgh_Steelers.gif') selected @endif>Pittsburg Steelers</option>
+                                <option value="uploads/avatars/San_Francisco_49ers.gif" @if ($user->avatar=='uploads/avatars/San_Francisco_49ers.gif') selected @endif>San Francisco 49ers</option>
+                                <option value="uploads/avatars/Seattle_Seahawks.gif" @if ($user->avatar=='uploads/avatars/Seattle_Seahawks.gif') selected @endif>Seattle Seahawks</option>
+                                <option value="uploads/avatars/Tampa_Bay_Buccaneers.gif" @if ($user->avatar=='uploads/avatars/Tampa_Bay_Buccaneers.gif') selected @endif>Tampa Bay Buccaneers</option>
+                                <option value="uploads/avatars/Tennessee_Titans.gif" @if ($user->avatar=='uploads/avatars/Tennessee_Titans.gif') selected @endif>Tennessee Titans</option>
+                                <option value="uploads/avatars/Washington_Redskins.gif" @if ($user->avatar=='uploads/avatars/Washington_Redskins.gif') selected @endif>Washington Redskins</option>
+
+                            </select>
                         </div>
 
 
