@@ -19,6 +19,7 @@ class AddPaidUser extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
