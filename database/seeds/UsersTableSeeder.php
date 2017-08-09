@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder
             'team_name' => 'Team Lemay',
             'phone' => '(518) 796-8987',
             'options' => 'f',
-            'admin' => 1
+            'admin' => 1,
+           'total_paid' =>'0'
         ]);
 
        App\Profile::create([
