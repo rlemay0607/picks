@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AddPaidUser extends Migration
 {
@@ -18,8 +17,7 @@ class AddPaidUser extends Migration
 
         });
     }
-
-
+    
     /**
      * Reverse the migrations.
      *
