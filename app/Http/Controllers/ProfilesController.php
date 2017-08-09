@@ -15,7 +15,7 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        return view('nfl.profile')->with('user', Auth::user());
+        return view('nfl.profile');
     }
 
     /**
@@ -56,10 +56,7 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -76,6 +73,7 @@ class ProfilesController extends Controller
             'phone' => 'required',
             'team_name' => 'required',
             'options' => 'required',
+            'paid' => 'required',
 
 
         ]);
@@ -97,6 +95,58 @@ class ProfilesController extends Controller
         $user->team_name = $request->team_name;
         $user->options = $request->options;
         $user->avatar= $request->team;
+        $user->total_paid = $request->paid;
+
+        $user->save();
+
+
+        if($request->has('password'))
+        {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
+        Session::flash('success', 'Account profile updated');
+        return view('index');
+    }
+
+
+    public function edit(Request $request)
+    {
+
+    }
+
+    public function updateadmin(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'team_name' => 'required',
+            'options' => 'required',
+            'paid' => 'required',
+
+
+        ]);
+
+        $user = Auth::user();
+
+        if($request->hasFile('avatar'))
+        {
+            $avatar = $request->avatar;
+            $avatar_new_name = time(). $avatar->getClientOriginalName();
+            $avatar->move('uploads/avatars', $avatar_new_name);
+            $user->avatar = 'uploads/avatars/' . $avatar_new_name;
+            $user->save();
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->team_name = $request->team_name;
+        $user->options = $request->options;
+        $user->avatar= $request->team;
+        $user->total_paid = $request->paid;
 
         $user->save();
 

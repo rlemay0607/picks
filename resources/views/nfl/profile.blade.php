@@ -39,7 +39,7 @@
 </head>
 <body>
 
-@include('includes.header')
+@include('layouts.app')
     @include('admin.includes.error')
 
 <div class="container">
@@ -58,6 +58,16 @@
                             <label for="email">Email</label>
                             <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                         </div>
+                        @if (Auth::user()-> admin=='1')
+                        @if($user->total_paid<'110')
+                            <div class="form-group">
+                                <label for="paid">Total Paid to Date</label>
+                                <input type="text" name="paid" value="{{ $user->total_paid }}" class="form-control">
+                            </div>
+                        @else
+                            <font color="green"> <b> Paid in Full</b></font>
+                        @endif
+                        @endif
 
                         <div class="form-group">
                             <label for="team_name">Team Name</label>
@@ -97,7 +107,7 @@
 
 
                         <div class="form-group">
-                            <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+                            <label class="mr-sm-2" for="inlineFormCustomSelect">Football Team</label>
                             <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="team">
                                 <option value="uploads/avatars/default.png" @if ($user->avatar=='uploads/avatars/default.png') selected @endif>No Team</option>
                                 <option value="uploads/avatars/Arizona_Cardinals.gif" @if ($user->avatar=='uploads/avatars/Arizona_Cardinals.gif') selected @endif>Arizona Cardinals</option>

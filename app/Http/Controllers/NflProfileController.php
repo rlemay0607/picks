@@ -13,7 +13,7 @@ class NflProfileController extends Controller
      */
     public function index()
     {
-        return view('nfl.profile')->with('user', Auth::user());
+        return view('nfl.profile');
     }
 
     /**
@@ -56,7 +56,43 @@ class NflProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'team_name' => 'required|unique:users',
+            'phone' => 'required',
+            'options' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        if($request->hasFile('avatar'))
+        {
+            $avatar = $request->avatar;
+            $avatar_new_name = time(). $avatar->getClientOriginalName();
+            $avatar->move('uploads/avatars', $avatar_new_name);
+            $user->profile->avatar = 'uploads/avatars/' . $avatar_new_name;
+            $user->profile->save();
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->team_name = $request->team_name;
+        $user->phone = $request->phone;
+        $user->options = $request->options;
+
+        $user->save();
+
+
+        if($request->has('password'))
+        {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
+        Session::flash('success', 'Account profile updated');
+        return redirect()->back();
     }
 
     /**
@@ -68,6 +104,7 @@ class NflProfileController extends Controller
      */
     public function update(Request $request)
     {
+
         $this->validate($request,[
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',

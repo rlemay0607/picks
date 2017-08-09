@@ -12,6 +12,12 @@
             <div class="col-xs-10  col-xs-offset-1">
                 <br>
                 <h4>{{ Auth::user()->team_name }}</h4>
+                @if(Auth::user()->total_paid<'110')
+                    <b><font color="red">Out Standing Balance {{110-Auth::user()->total_paid}}</font></b>
+                    @else
+                    <b><font color="green">Paid in Full</font></b>
+                @endif
+
                 <p align="left">{{ Auth::user() -> name}}<br>
                 {{ Auth::user() -> email}}<br>
                 {{ Auth::user() -> phone}}<br>
@@ -34,13 +40,7 @@
                 </form>
 
 
-                    <div class="row">
 
-                            <button type="button" class="btn btn-success disabled">Weekly Rankings <span class="badge"></span></button>
-                            <button type="button" class="btn btn-success disabled">Season Rankings <span class="badge"></span></button>
-
-
-                    </div>
                 <br>
 
 

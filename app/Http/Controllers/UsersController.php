@@ -73,6 +73,50 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function adminupdate($id)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'team_name' => 'required',
+            'options' => 'required',
+
+
+        ]);
+
+        $user = Auth::user();
+
+        if($request->hasFile('avatar'))
+        {
+            $avatar = $request->avatar;
+            $avatar_new_name = time(). $avatar->getClientOriginalName();
+            $avatar->move('uploads/avatars', $avatar_new_name);
+            $user->avatar = 'uploads/avatars/' . $avatar_new_name;
+            $user->save();
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->team_name = $request->team_name;
+        $user->options = $request->options;
+        $user->avatar= $request->team;
+        $user->total_paid =$request->total_paid;
+
+        $user->save();
+
+
+        if($request->has('password'))
+        {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
+        Session::flash('success', 'Account profile updated');
+        return view('index');
+    }
     public function show($id)
     {
         //
@@ -85,9 +129,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-    }
+
+        {
+            $user = user::find($id);
+            return view('admin.users.edit')->with('user', $user);
+        }
+
 
     /**
      * Update the specified resource in storage.
@@ -110,7 +157,6 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->profile->delete();
         $user->delete();
 
         Session::flash('success', 'User has been deleted');

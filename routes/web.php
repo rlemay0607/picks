@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::group(['middleware'=>'auth'], function () {
     Route::get('/', [
         'uses' => 'FrontEndController@index',
@@ -19,18 +20,19 @@ Route::group(['middleware'=>'auth'], function () {
         'uses' => 'FrontEndController@single',
         'as' => 'single'
     ]);
-    Route::get('/nfl/profile/{id}', [
-        'uses' => 'NflProfileController@index',
-        'as' => 'nfl.profile'
-    ]);
+
+
     Route::get('/nfl/profile',[
         'uses' => 'UsersController@profile',
         'as' => 'user.profile'
-    ])->middleware('admin');
+    ]);
+
     Route::post('/user/profile/update',[
         'uses' => 'ProfilesController@update',
         'as' => 'user.profile.update'
     ]);
+
+
 });
 
 Auth::routes();
@@ -38,6 +40,11 @@ Auth::routes();
 
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
+
+    Route::get('/user/edit/{id}', [
+        'uses' => 'UsersController@edit',
+        'as' => 'user.edit'
+    ])->middleware('admin');
 
     Route::get('/home', [
         'uses' => 'HomeController@index',
@@ -136,7 +143,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
     Route::get('/users',[
        'uses' => 'UsersController@index',
         'as' => 'users'
-    ]);
+    ])->middleware('admin');
     Route::get('/user/create',[
         'uses' => 'UsersController@create',
         'as' => 'user.create'
@@ -182,6 +189,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
 Auth::routes('home');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/nfl/profile/{id}', [
+    'uses' => 'NflProfileController@index',
+    'as' => 'nfl.profile'
+]);
 
 Auth::routes();
 
