@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Http\Request;
 use Session;
 
 class ProfilesController extends Controller
@@ -73,7 +73,7 @@ class ProfilesController extends Controller
             'phone' => 'required',
             'team_name' => 'required',
             'options' => 'required',
-            'paid' => 'required',
+
 
 
         ]);
@@ -95,7 +95,7 @@ class ProfilesController extends Controller
         $user->team_name = $request->team_name;
         $user->options = $request->options;
         $user->avatar= $request->team;
-        $user->total_paid = $request->paid;
+
 
         $user->save();
 
@@ -124,7 +124,7 @@ class ProfilesController extends Controller
             'phone' => 'required',
             'team_name' => 'required',
             'options' => 'required',
-            'paid' => 'required',
+            'total_paid' => 'required',
 
 
         ]);

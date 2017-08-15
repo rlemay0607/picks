@@ -74,7 +74,7 @@
 
                             </tbody>
                         </table>
-                        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('users') }}" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="text-center">
                                     <button class="btn btn-success disabled" type="submit">
@@ -111,7 +111,7 @@
 
                             </tbody>
                         </table>
-                        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('users') }}" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="text-center">
                                     <button class="btn btn-success disabled" type="submit">

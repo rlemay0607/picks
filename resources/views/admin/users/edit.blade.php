@@ -48,7 +48,7 @@
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
-                        <form action="{{ route('admin.profile.update') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('user.profile.update') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="name">User Name</label>

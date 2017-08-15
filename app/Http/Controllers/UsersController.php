@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Session;
-use Auth;
 
 class UsersController extends Controller
 {
@@ -131,7 +131,7 @@ class UsersController extends Controller
     public function edit($id)
 
         {
-            $user = user::find($id);
+            $user = User::find($id);
             return view('admin.users.edit')->with('user', $user);
         }
 
