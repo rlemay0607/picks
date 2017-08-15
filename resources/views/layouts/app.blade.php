@@ -74,6 +74,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('about') }}">About</a> </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -88,7 +89,9 @@
                                 </ul>
                             </li>
                         @endif
+
                     </ul>
+
                 </div>
             </div>
         </nav>

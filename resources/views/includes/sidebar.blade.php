@@ -13,7 +13,9 @@
                 <br>
                 <h4>{{ Auth::user()->team_name }}</h4>
                 @if(Auth::user()->total_paid<'110')
-                    <b><font color="red">Out Standing Balance {{110-Auth::user()->total_paid}}</font></b>
+                    <b><font color="red">Out Standing Balance {{110-Auth::user()->total_paid}}</font> <a href="{{route('about')}}">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </a></b>
                     @else
                     <b><font color="green">Paid in Full</font></b>
                 @endif

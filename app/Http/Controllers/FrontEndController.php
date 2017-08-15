@@ -5,17 +5,19 @@ use App\Category;
 use App\Post;
 use App\Profile;
 use App\Setting;
-
-
 use App\Tag;
 use App\User;
-use Illuminate\Http\Request;
+
 
 class FrontEndController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+    }
+    public function about()
+    {
+        return view('about');
     }
     public function index()
     {

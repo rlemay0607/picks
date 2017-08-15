@@ -26,6 +26,10 @@ Route::group(['middleware'=>'auth'], function () {
         'uses' => 'ProfilesController@update',
         'as' => 'user.profile.update'
     ]);
+    Route::get('/about', [
+        'uses' => 'FrontEndController@about',
+        'as' => 'about'
+    ]);
 });
 
 Auth::routes();
