@@ -14,9 +14,10 @@
                                 <h2>About Weekly Picks</h2>
                             </div>
                             <p>
-                            This year all picks will be done online no paper sheets will be accepted we are going <font color="green"> <b>GREEN</b></font>. The cost this year will be <b>$110</b> and this will include all picks through the superbowl.</br>
+                            This year we are going <font color="green"> <b>GREEN</b></font> all picks will be done online.  The cost this year will be <b>$110</b> this will include all the picks through out the season including the superbowl. </br>
                                 </br>
-                                The following is the breakout on how the $110 will be split up.  As you can see below there will be a <b>$20</b> per person administrator fee.  There is a lot of work to maintain this site if you have an issue with the fee then please dont play.</br>
+                                Below you will see the breakdown on how the $110 will be split up. If you have any questions please contact us.</br>
+                            <div class="row">
                             <table class="table table">
                                 <thead>
                                 <tr>
@@ -206,6 +207,7 @@
 
                                 </tbody>
                             </table>
+                            </div>
 
 
 
