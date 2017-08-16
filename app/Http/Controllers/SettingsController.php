@@ -75,21 +75,15 @@ class SettingsController extends Controller
      */
     public function update()
     {
-        $this->validate(request(), [
-            'site_name' => 'required',
-            'contact_number' => 'required',
-            'contact_email' => 'required',
-            'address' => 'required'
-        ]);
+
         $setting = Setting::first();
-        $setting->site_name = request()->site_name;
-        $setting->contact_number = request()->contact_number;
-        $setting->contact_email = request()->contact_email;
-        $setting->address= request()->address;
+        $setting->admin_message = request()->message;
+        $setting->show_message = request()->show_message;
+        $setting->message_color = request()->message_color;
 
         $setting->save();
         Session::flash('success', 'Site settings have been updated');
-        return redirect()->back();
+        return redirect('/');
     }
 
     /**

@@ -46,6 +46,24 @@
 <!-- Search - Open panel -->
 
 <div class="container">
+    @if($settings->show_message == "1")
+    <div class="row">
+        <div class="col-xs-12  col-md-12">
+        @if($settings->message_color == "success")
+            <div class="alert alert-success" role="alert">{{$settings->admin_message}}</div>
+            @endif
+            @if($settings->message_color == "info")
+            <div class="alert alert-info" role="alert">{{$settings->admin_message}}</div>
+            @endif
+            @if($settings->message_color == "warning")
+            <div class="alert alert-warning" role="alert">{{$settings->admin_message}}</div>
+            @endif
+            @if($settings->message_color == "danger")
+            <div class="alert alert-danger" role="alert">{{$settings->admin_message}}</div>
+            @endif
+        </div>
+    </div>
+    @endif
     <div class="row">
 
         <div class="col-xs-12  col-md-8">

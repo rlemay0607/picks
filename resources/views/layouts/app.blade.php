@@ -17,7 +17,7 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = {!! json_encode([
+        window.Laravel ={!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
@@ -63,6 +63,9 @@
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
                                         <a href="{{ route('users') }}">Users <span class="badge">{{ \App\User::count() }}</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('settings') }}">Settings</a>
                                         </li>
                                     </ul>
                                 </li>
