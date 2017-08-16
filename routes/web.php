@@ -17,6 +17,7 @@ Route::group(['middleware'=>'auth'], function () {
         'as' => 'index'
     ]);
 
+
     Route::get('/nfl/profile',[
         'uses' => 'UsersController@profile',
         'as' => 'user.profile'

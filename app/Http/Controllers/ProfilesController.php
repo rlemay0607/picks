@@ -107,7 +107,7 @@ class ProfilesController extends Controller
         }
 
         Session::flash('success', 'Account profile updated');
-        return view('index');
+        return redirect()->to('/')->with('message');
     }
 
 

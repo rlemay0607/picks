@@ -50,16 +50,16 @@
     <div class="row">
         <div class="col-xs-12  col-md-12">
         @if($settings->message_color == "success")
-            <div class="alert alert-success" role="alert">{{$settings->admin_message}}</div>
+            <div class="alert alert-success" role="alert"><b><center>{{$settings->admin_message}}</center></b></div>
             @endif
             @if($settings->message_color == "info")
-            <div class="alert alert-info" role="alert">{{$settings->admin_message}}</div>
+            <div class="alert alert-info" role="alert"><b><center>{{$settings->admin_message}}</center></b></div>
             @endif
             @if($settings->message_color == "warning")
-            <div class="alert alert-warning" role="alert">{{$settings->admin_message}}</div>
+            <div class="alert alert-warning" role="alert"><b><center>{{$settings->admin_message}}</center></b></div>
             @endif
             @if($settings->message_color == "danger")
-            <div class="alert alert-danger" role="alert">{{$settings->admin_message}}</div>
+            <div class="alert alert-danger" role="alert"><b><center>{{$settings->admin_message}}</center></b></div>
             @endif
         </div>
     </div>
