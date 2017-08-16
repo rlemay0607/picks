@@ -41,6 +41,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
         'as' => 'user.edit'
     ])->middleware('admin');
 
+    Route::post('/admin/profile/update/{id}',[
+        'uses' => 'UsersController@adminupdate',
+        'as' => 'admin.profile.update'
+    ]);
+
     Route::get('/home', [
         'uses' => 'HomeController@index',
         'as' => 'home'

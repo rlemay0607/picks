@@ -74,7 +74,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function adminupdate($id)
+    public function adminupdate(Request $request, $id)
     {
         $this->validate($request,[
             'name' => 'required',
@@ -84,18 +84,10 @@ class UsersController extends Controller
             'options' => 'required',
 
 
+
         ]);
 
-        $user = Auth::user();
-
-        if($request->hasFile('avatar'))
-        {
-            $avatar = $request->avatar;
-            $avatar_new_name = time(). $avatar->getClientOriginalName();
-            $avatar->move('uploads/avatars', $avatar_new_name);
-            $user->avatar = 'uploads/avatars/' . $avatar_new_name;
-            $user->save();
-        }
+        $user =User::find($id);
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -103,7 +95,8 @@ class UsersController extends Controller
         $user->team_name = $request->team_name;
         $user->options = $request->options;
         $user->avatar= $request->team;
-        $user->total_paid =$request->total_paid;
+        $user->total_paid=$request->paid;
+
 
         $user->save();
 
@@ -114,8 +107,8 @@ class UsersController extends Controller
             $user->save();
         }
 
-        Session::flash('success', 'Account profile updated');
-        return view('index');
+
+        return redirect()->route('users');
     }
     public function show($id)
     {
@@ -180,4 +173,6 @@ class UsersController extends Controller
         return redirect()->back();
 
     }
+
+
 }
