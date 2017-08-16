@@ -12,9 +12,8 @@ class AddPaidUser extends Migration
      */
     public function up()
     {
-        Schema::table('settings', function($table) {
-            $table->integer("show_message")->default('0');
-            $table->string("admin_message");
+        Schema::table('users', function($table) {
+            $table->integer("total_paid")->default('0');
 
         });
     }

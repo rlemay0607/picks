@@ -60,29 +60,30 @@
                             <thead>
                             <tr>
                                 <th>Team Name</th>
-                                <th>Email Name</th>
+
                                 <th>Permissions</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Actions</th>
+
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->team_name }}</td>
-                                <td>{{ $user->email }}</td>
+
                                 <td>@if($user->admin)
                                         <a href="{{ route('user.not.admin',['id' => $user->id]) }}" class="btn btn-xs btn-danger">Remove Admin</a>
                                     @else
                                         <a href="{{ route('user.admin',['id' => $user->id]) }}" class="btn btn-xs btn-success">Make Admin</a>
                                     @endif</td>
-                                <td> <a href="{{ route('user.profile',['id' => $user->id]) }}" class="btn btn-xs btn-info">
+                                <td> <a href="{{ route('user.edit',['id' => $user->id]) }}" class="btn btn-xs btn-info">
                                         <span class="glyphicon glyphicon-pencil"></span>
-                                    </a></td>
-                                <td>@if(Auth::id() !== $user->id)
-                                        <a href="{{ route('user.delete',['id' => $user->id]) }}" class="btn btn-xs btn-danger">Delete</a>
-                                    @endif
-                                </td>
+                                    </a>@if(Auth::id() !== $user->id)
+                                        <a href="{{ route('user.delete',['id' => $user->id]) }}" class="btn btn-xs btn-danger">
+                                            <span class="glyphicon glyphicon-remove-sign"></span>
+                                        </a>
+                                    @endif</td>
+
 
 
                             </tr>
