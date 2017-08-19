@@ -90,6 +90,8 @@
                                     <option value="Washington Redskins"@if ($game->favorit=='Washington Redskins') selected @endif>Washington Redskins</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
 
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Spread</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="spread">
@@ -125,6 +127,8 @@
                                     <option value="29.5"@if ($game->spread=='29.5') selected @endif>29.5</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
                                     <option value="Arizona Cardinals" @if ($game->underdog=='Arizona Cardinals') selected @endif>Arizona Cardinals</option>
@@ -161,7 +165,8 @@
                                     <option value="Washington Redskins"@if ($game->underdog=='Washington Redskins') selected @endif>Washington Redskins</option>
 
                                 </select>
-
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Game Time</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="game_time">
 
@@ -178,6 +183,8 @@
                                     <option value="monday_night"@if ($game->game_time=='monday_night') selected @endif>Monday Night Game</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <button class="btn btn-xs btn-success" type="submit">
                                     Update Pick
                                 </button>
