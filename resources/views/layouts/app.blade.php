@@ -67,6 +67,9 @@
                                         <li>
                                             <a href="{{ route('settings') }}">Settings</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('mastergame.index') }}">Master Game</a>
+                                        </li>
                                     </ul>
                                 </li>
 
@@ -91,9 +94,16 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{ url('/') }}">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                </a>
+                            </li>
                         @endif
 
+
                     </ul>
+
 
                 </div>
             </div>

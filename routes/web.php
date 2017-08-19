@@ -31,6 +31,42 @@ Route::group(['middleware'=>'auth'], function () {
         'uses' => 'FrontEndController@about',
         'as' => 'about'
     ]);
+    Route::get('/master_game', [
+        'uses' => 'MasterGameController@index',
+        'as' => 'mastergame.index'
+    ])->middleware('admin');
+    Route::post('/master_game/create', [
+        'uses' => 'MasterGameController@store',
+        'as' => 'master.game.create'
+    ])->middleware('admin');
+    Route::get('game/delete/{id}',[
+        'uses' => 'MasterGameController@destroy',
+        'as' => 'game.delete'
+    ])->middleware('admin');
+    Route::get('game/lock/{id}',[
+        'uses' => 'MasterGameController@gamelock',
+        'as' => 'game.lock'
+    ])->middleware('admin');
+    Route::get('game/unlock/{id}',[
+        'uses' => 'MasterGameController@gameunlock',
+        'as' => 'game.unlock'
+    ])->middleware('admin');
+    Route::get('game/edit/{id}',[
+        'uses' => 'MasterGameController@edit',
+        'as' => 'game.edit'
+    ])->middleware('admin');
+    Route::get('game/score/{id}',[
+        'uses' => 'MasterGameController@score',
+        'as' => 'game.score'
+    ])->middleware('admin');
+    Route::post('game/update/{id}',[
+        'uses' => 'MasterGameController@update',
+        'as' => 'game.update'
+    ])->middleware('admin');
+    Route::post('master/game/score/{id}',[
+        'uses' => 'MasterGameController@gamescore',
+        'as' => 'master.game.score'
+    ])->middleware('admin');
 });
 
 Auth::routes();

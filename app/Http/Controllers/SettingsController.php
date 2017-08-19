@@ -80,6 +80,7 @@ class SettingsController extends Controller
         $setting->admin_message = request()->message;
         $setting->show_message = request()->show_message;
         $setting->message_color = request()->message_color;
+        $setting->week_number = request()->week_number;
 
         $setting->save();
         Session::flash('success', 'Site settings have been updated');

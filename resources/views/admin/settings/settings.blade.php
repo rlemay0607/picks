@@ -57,9 +57,41 @@
                 {{csrf_field()}}
 
                 <div class="form-group">
+                    <label class="mr-sm-2" for="inlineFormCustomSelect">Week</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="week_number">
+
+                        <option value="1" @if ($settings->week_number=='1') selected @endif>1</option>
+                        <option value="2" @if ($settings->week_number=='2') selected @endif>2</option>
+                        <option value="3" @if ($settings->week_number=='3') selected @endif>3</option>
+                        <option value="4" @if ($settings->week_number=='4') selected @endif>4</option>
+                        <option value="5" @if ($settings->week_number=='5') selected @endif>5</option>
+                        <option value="6" @if ($settings->week_number=='6') selected @endif>6</option>
+                        <option value="7" @if ($settings->week_number=='7') selected @endif>7</option>
+                        <option value="8" @if ($settings->week_number=='8') selected @endif>8</option>
+                        <option value="9" @if ($settings->week_number=='9') selected @endif>9</option>
+                        <option value="10" @if ($settings->week_number=='10') selected @endif>10</option>
+                        <option value="11" @if ($settings->week_number=='11') selected @endif>11</option>
+                        <option value="12" @if ($settings->week_number=='12') selected @endif>12</option>
+                        <option value="13" @if ($settings->week_number=='13') selected @endif>13</option>
+                        <option value="14" @if ($settings->week_number=='14') selected @endif>14</option>
+                        <option value="15" @if ($settings->week_number=='15') selected @endif>15</option>
+                        <option value="16" @if ($settings->week_number=='16') selected @endif>16</option>
+                        <option value="17" @if ($settings->week_number=='17') selected @endif>17</option>
+                        <option value="18" @if ($settings->week_number=='18') selected @endif>Wildcard</option>
+                        <option value="19" @if ($settings->week_number=='19') selected @endif>Divisional</option>
+                        <option value="20" @if ($settings->week_number=='20') selected @endif>Championship</option>
+                        <option value="21" @if ($settings->week_number=='21') selected @endif>Super Bowl</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="address">Message</label>
                     <input type="text" name="message" value="{{ $settings->admin_message }}" class="form-control">
                 </div>
+
+
+
 
 Message Color
                     <div class="form-group">

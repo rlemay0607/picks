@@ -205,7 +205,7 @@
 			smallScreenFlag = windowWidth();
 			/* IE8 fix */
 			if(/MSIE (\d+\.\d+);/.test(navigator.userAgent) && windowWidth() < mobileWidthBase){
-				var ieversion = new Number(RegExp.$1);
+				var ieversion = Number(RegExp.$1);
 				if(ieversion == 8){
 					$(showHideButton).hide(0);
 					$(menu).show(0);
