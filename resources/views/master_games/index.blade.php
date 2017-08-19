@@ -101,6 +101,8 @@
 
 
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Spread</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="spread">
                                     <option value="0.5">0.5</option>
@@ -135,6 +137,8 @@
                                     <option value="29.">29.5</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
                                     <option value="Arizona Cardinals">Arizona Cardinals</option>
@@ -172,7 +176,8 @@
 
 
                                 </select>
-
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Game Time</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="game_time">
 
@@ -189,6 +194,8 @@
                                     <option value="monday_night">Monday Night Game</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <button class="btn btn-xs btn-success" type="submit">
                                     Create Pick
                                 </button>
