@@ -86,12 +86,7 @@
                                     Under Dogs
                                 </label>
                             </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="options" id="options3" value="r" @if ($user->options=='r') checked @endif>
-                                    Random
-                                </label>
-                            </div>
+                            
                         </div>
 
 
