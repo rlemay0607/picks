@@ -82,7 +82,7 @@
                                 <input type="text" name="team_name" value="{{ $user->team_name }}" class="form-control">
                             </div>
 
-                           
+
                             <div class="form-group">
                                 <label for="paid">Total Paid to Date</label>
                                 <input type="text" name="paid" value="{{ $user->total_paid }}" class="form-control">
