@@ -123,6 +123,10 @@ Route::group(['middleware'=>'auth'], function () {
         'uses' => 'UserGameController@week21',
         'as' => 'week21.pick'
     ]);
+Route::get('/picks/currentweek',[
+        'uses' => 'UserGameController@curentweek',
+        'as' => 'currentweek.pick'
+    ]);
 
     Route::post('/user/profile/update',[
         'uses' => 'ProfilesController@update',

@@ -642,6 +642,36 @@ public function week21()
             ;
     }
 
+public function curentweek()
+    {
+        $settings = Setting::first();
+
+        return view('user_picks.update')
+            ->with('team_name', User::where('id', Auth::User())->first())
+            ->with('games', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id', Auth::User()->id]])->get())
+            ->with('saturday_early', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'saturday_early']])->get())
+            ->with('saturday_early_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'saturday_early']])->count())
+            ->with('saturday_late', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'saturday_late']])->get())
+            ->with('saturday_late_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'saturday_late']])->count())
+            ->with('saturday_night', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id],['game_time', 'saturday_night']])->get())
+            ->with('saturday_night_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'saturday_night']])->count())
+
+            ->with('sunday_early', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id],['game_time', 'sunday_early']])->get())
+            ->with('sunday_early_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'sunday_early']])->count())
+            ->with('sunday_late', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'sunday_late']])->get())
+            ->with('sunday_late_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'sunday_late']])->count())
+            ->with('sunday_night', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'sunday_night']])->get())
+            ->with('sunday_night_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'sunday_night']])->count())
+            ->with('sunday_morning', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'sunday_morning']])->get())
+            ->with('sunday_morning_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'sunday_morning']])->count())
+
+            ->with('monday_night', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'monday_night']])->get())
+            ->with('monday_night_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'monday_night']])->count())
+
+
+            ;
+    }
+
     public function createsheet(Request $request)
     {
         $settings = Setting::first();
