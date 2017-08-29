@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/stylesheets/3eba4af4.main.css"/>
 
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
@@ -50,48 +51,40 @@
     <div class="row">
 
         <div class="col-xs-12  col-md-12">
+
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">
 
                     <div class="col-xs-10  col-xs-offset-1">
                         <div class="text-center">
-                            <h4>User Admin</h4>
+                            <h4>Season Standings</h4>
                         </div>
-                        <table class="table table-hover">
+                        <table class="table" >
                             <thead>
                             <tr>
+
                                 <th>Team Name</th>
-
-                                <th>Permissions</th>
-                                <th>Edit</th>
-
+                                <th>Total Points</th>
+                                <th>Points Behind</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->team_name }}</td>
+                            @foreach($seasonpoints as $seasonpoint)
+                                <tr @if($seasonpoint->team_name == Auth::user() ->team_name) bgcolor="yellow" @endif>
 
-                                <td>@if($user->admin)
-                                        <a href="{{ route('user.not.admin',['id' => $user->id]) }}" class="btn btn-xs btn-danger">Remove Admin</a>
-                                    @else
-                                        <a href="{{ route('user.admin',['id' => $user->id]) }}" class="btn btn-xs btn-success">Make Admin</a>
-                                    @endif</td>
-                                <td> <a href="{{ route('user.edit',['id' => $user->id]) }}" class="btn btn-xs btn-info">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a></td>
+                                    <td>{{$seasonpoint->team_name}}</td>
+                                    <td>{{$seasonpoint->total}}</td>
+                                    <td>@if($seasonmax - $seasonpoint->total == '0') -- @endif @if($seasonmax - $seasonpoint->total > '0') {{$seasonmax - $seasonpoint->total}}  @endif</td>
 
-
-
-                            </tr>
+                                </tr>
                             @endforeach
+
                             </tbody>
                         </table>
 
                     </div>
                 </div>
             </div>
-
 
         </div>
 

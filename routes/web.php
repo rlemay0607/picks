@@ -17,10 +17,111 @@ Route::group(['middleware'=>'auth'], function () {
         'as' => 'index'
     ]);
 
+    Route::get('view/picks/{id}',[
+        'uses' => 'UserGameController@show',
+        'as' => 'view.picks'
+    ]);
 
     Route::get('/nfl/profile',[
         'uses' => 'UsersController@profile',
         'as' => 'user.profile'
+    ]);
+
+    Route::get('/nfl/standings/season',[
+        'uses' => 'Standings@season',
+        'as' => 'season.standings'
+    ]);
+
+    Route::get('/nfl/standings/week',[
+        'uses' => 'Standings@week',
+        'as' => 'week.standings'
+    ]);
+    //Weekly Picks
+
+    Route::get('/picks/week1',[
+        'uses' => 'UserGameController@week1',
+        'as' => 'week1.pick'
+    ]);
+
+    Route::get('/picks/week2',[
+        'uses' => 'UserGameController@week2',
+        'as' => 'week2.pick'
+    ]);
+    Route::get('/picks/week3',[
+        'uses' => 'UserGameController@week3',
+        'as' => 'week3.pick'
+    ]);
+    Route::get('/picks/week4',[
+        'uses' => 'UserGameController@week4',
+        'as' => 'week4.pick'
+    ]);
+    Route::get('/picks/week5',[
+        'uses' => 'UserGameController@week5',
+        'as' => 'week5.pick'
+    ]);
+    Route::get('/picks/week6',[
+        'uses' => 'UserGameController@week6',
+        'as' => 'week6.pick'
+    ]);
+    Route::get('/picks/week7',[
+        'uses' => 'UserGameController@week7',
+        'as' => 'week7.pick'
+    ]);
+    Route::get('/picks/week8',[
+        'uses' => 'UserGameController@week8',
+        'as' => 'week8.pick'
+    ]);
+    Route::get('/picks/week9',[
+        'uses' => 'UserGameController@week9',
+        'as' => 'week9.pick'
+    ]);
+    Route::get('/picks/week10',[
+        'uses' => 'UserGameController@week10',
+        'as' => 'week10.pick'
+    ]);
+    Route::get('/picks/week11',[
+        'uses' => 'UserGameController@week11',
+        'as' => 'week11.pick'
+    ]);
+    Route::get('/picks/week12',[
+        'uses' => 'UserGameController@week12',
+        'as' => 'week12.pick'
+    ]);
+    Route::get('/picks/week13',[
+        'uses' => 'UserGameController@week13',
+        'as' => 'week13.pick'
+    ]);
+    Route::get('/picks/week14',[
+        'uses' => 'UserGameController@week14',
+        'as' => 'week14.pick'
+    ]);
+    Route::get('/picks/week15',[
+        'uses' => 'UserGameController@week15',
+        'as' => 'week15.pick'
+    ]);
+    Route::get('/picks/week16',[
+        'uses' => 'UserGameController@week16',
+        'as' => 'week16.pick'
+    ]);
+    Route::get('/picks/week17',[
+        'uses' => 'UserGameController@week17',
+        'as' => 'week17.pick'
+    ]);
+    Route::get('/picks/week18',[
+        'uses' => 'UserGameController@week18',
+        'as' => 'week18.pick'
+    ]);
+    Route::get('/picks/week19',[
+        'uses' => 'UserGameController@week19',
+        'as' => 'week19.pick'
+    ]);
+    Route::get('/picks/week20',[
+        'uses' => 'UserGameController@week20',
+        'as' => 'week20.pick'
+    ]);
+    Route::get('/picks/week21',[
+        'uses' => 'UserGameController@week21',
+        'as' => 'week21.pick'
     ]);
 
     Route::post('/user/profile/update',[
@@ -34,6 +135,10 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('/master_game', [
         'uses' => 'MasterGameController@index',
         'as' => 'mastergame.index'
+    ])->middleware('admin');
+    Route::post('/userpick/update/{id}', [
+        'uses' => 'UserGameController@updatepick',
+        'as' => 'user.pick.update'
     ])->middleware('admin');
     Route::post('/master_game/create', [
         'uses' => 'MasterGameController@store',
@@ -66,6 +171,10 @@ Route::group(['middleware'=>'auth'], function () {
     Route::post('master/game/score/{id}',[
         'uses' => 'MasterGameController@gamescore',
         'as' => 'master.game.score'
+    ])->middleware('admin');
+    Route::post('/mastergame/createsheet',[
+        'uses' => 'UserGameController@createsheet',
+        'as' => 'create.sheet'
     ])->middleware('admin');
 });
 

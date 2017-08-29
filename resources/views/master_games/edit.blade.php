@@ -170,9 +170,6 @@
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Game Time</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="game_time">
 
-                                    <option value="thursday_early"@if ($game->game_time=='thursday_early') selected @endif>Thursday Early Game</option>
-                                    <option value="thursday_late"@if ($game->game_time=='thursday_late') selected @endif>Thursday Late Game</option>
-                                    <option value="thursday_night"@if ($game->game_time=='thursday_night') selected @endif>Thursday Night Game</option>
                                     <option value="saturday_early"@if ($game->game_time=='saturday_early') selected @endif>Saturday Early Game</option>
                                     <option value="saturday_late"@if ($game->game_time=='saturday_late') selected @endif>Saturday Late Game</option>
                                     <option value="saturday_night"@if ($game->game_time=='saturday_night') selected @endif>Saturday Night Game</option>

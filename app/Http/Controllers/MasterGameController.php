@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MasterGames;
 use App\Setting;
+use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
@@ -101,15 +102,37 @@ class MasterGameController extends Controller
     public function gamescore(Request $request, $id)
     {
         $game = MasterGames::find($id);
-        if ($request->score=="f") {
-            $game->winner = $game->favorit;
-        }
-        if ($request->score=="u") {
-            $game->winner = $game->underdog;
-        }
+
+        $game->winner = $request->score;
         $game->scored = '1';
 
         $game->save();
+
+        $picks = UserPicks::where([['master_game_id', '=', $game->id], ['pick','=', $game->winner]])->get();
+        foreach ($picks as $pick)
+            ([
+                $pick->point='1',
+                $pick->game_scored='1',
+                $pick->save()
+
+
+
+            ]);
+
+        $pick2s = UserPicks::where([['master_game_id', '=', $game->id], ['pick','!=', $game->winner]])->get();
+        foreach ($pick2s as $pick2)
+            ([
+                $pick2->point='0',
+                $pick2->game_scored='1',
+                $pick2->save()
+
+
+
+            ]);
+
+
+
+
         return redirect()->route('mastergame.index');
     }
 
@@ -137,16 +160,33 @@ class MasterGameController extends Controller
     public function gamelock($id)
     {
         $game = MasterGames::find($id);
+        $mastergame = UserPicks::where('master_game_id', $game->id)->get();
+
         $game->locked = 1;
         $game->save();
+        foreach ($mastergame as $mastergames)
+            ([
+                $mastergames->locked='1',
+                $mastergames->save()
+
+            ]);
+
         return redirect()->back();
 
     }
     public function gameunlock($id)
     {
         $game = MasterGames::find($id);
+        $mastergame = UserPicks::where('master_game_id', $game->id)->get();
+
         $game->locked = 0;
         $game->save();
+        foreach ($mastergame as $mastergames)
+            ([
+                $mastergames->locked='0',
+                $mastergames->save()
+
+            ]);
         return redirect()->back();
 
     }

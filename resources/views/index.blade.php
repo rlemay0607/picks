@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/stylesheets/3eba4af4.main.css"/>
 
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
@@ -72,30 +73,33 @@
 
                     <div class="col-xs-10  col-xs-offset-1">
                         <div class="text-center">
-                            <h4>Weekly Standings</h4>
+                            <h4>Weekly Standings Top 10</h4>
                         </div>
-                        <table class="table table-hover">
+                        <table class="table ">
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Team Name</th>
                                 <th>Total Points</th>
+                                <th>Points Behind</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
+                            @foreach($weekpoints as $weekpoint)
+                                <tr  @if($weekpoint->team_name == Auth::user() ->team_name) bgcolor="yellow" @endif >
 
-                            </tr>
+                                    <td>{{$weekpoint->team_name}}</td>
+                                    <td>{{$weekpoint->total}}</td>
+                                    <td>@if($weekmax - $weekpoint->total == '0') -- @endif @if($weekmax - $weekpoint->total > '0') {{$weekmax - $weekpoint->total}}  @endif</td>
+
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
-                        <form action="{{ route('users') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('week.standings') }}" method="get" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="text-center">
-                                    <button class="btn btn-success disabled" type="submit">
+                                    <button class="btn btn-success" type="submit">
                                         View Full List
                                     </button>
                                 </div>
@@ -109,30 +113,34 @@
 
                     <div class="col-xs-10  col-xs-offset-1">
                         <div class="text-center">
-                            <h4>Season Standings</h4>
+                            <h4>Season Standings Top 10</h4>
                         </div>
-                        <table class="table table-hover">
+                        <table class="table" >
                             <thead>
                             <tr>
-                                <th>#</th>
+
                                 <th>Team Name</th>
                                 <th>Total Points</th>
+                                <th>Points Behind</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
+                            @foreach($seasonpoints as $seasonpoint)
+                            <tr @if($seasonpoint->team_name == Auth::user() ->team_name) bgcolor="yellow" @endif>
+
+                                <td>{{$seasonpoint->team_name}}</td>
+                                <td>{{$seasonpoint->total}}</td>
+                                <td>@if($seasonmax - $seasonpoint->total == '0') -- @endif @if($seasonmax - $seasonpoint->total > '0') {{$seasonmax - $seasonpoint->total}}  @endif</td>
 
                             </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
-                        <form action="{{ route('users') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('season.standings') }}" method="get" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="text-center">
-                                    <button class="btn btn-success disabled" type="submit">
+                                    <button class="btn btn-success" type="submit">
                                         View Full List
                                     </button>
                                 </div>

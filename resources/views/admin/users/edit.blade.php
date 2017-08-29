@@ -50,10 +50,28 @@
                     <div class="col-xs-10  col-xs-offset-1">
                         <form action="{{ route('admin.profile.update' , ['id'=>$user->id])  }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
+                        </br>
                             <div class="form-group">
                                 <label for="name">User Name</label>
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control">
                             </div>
+
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="active" id="active1" value="1" @if ($user->active=='1') checked @endif>
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="active" id="active2" value="0" @if ($user->active=='0') checked @endif>
+                                        Inactive
+                                    </label>
+                                </div>
+
+                            </div>
+
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" value="{{ $user->email }}" class="form-control">
@@ -95,8 +113,10 @@
                                         Under Dogs
                                     </label>
                                 </div>
-                                
+
                             </div>
+
+
 
 
 

@@ -2258,7 +2258,7 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+  text-align: center;
 }
 .table {
   width: 100%;
@@ -3229,7 +3229,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
+  background-color: #5bc0dd;
   border-color: #46b8da;
 }
 .btn-info:focus,

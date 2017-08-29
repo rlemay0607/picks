@@ -60,6 +60,22 @@
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
                         <h4><b>Create a Pick</b></h4>
+                        <form action="{{ route('create.sheet')}}" method="post">
+                            {{csrf_field()}}
+                            <div class="form-group">
+
+
+
+                                <button class="btn btn-xs btn-success" type="submit">
+                                    Create Sheets
+                                </button>
+
+
+                            </div>
+
+
+                        </form>
+
                         <form action="{{ route('master.game.create') }}" method="post" >
                             {{csrf_field()}}
 
@@ -181,9 +197,7 @@
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Game Time</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="game_time">
 
-                                    <option value="thursday_early">Thursday Early Game</option>
-                                    <option value="thursday_late">Thursday Late Game</option>
-                                    <option value="thursday_night">Thursday Night Game</option>
+
                                     <option value="saturday_early">Saturday Early Game</option>
                                     <option value="saturday_late">Saturday Late Game</option>
                                     <option value="saturday_night">Saturday Night Game</option>
@@ -224,9 +238,9 @@
                             @foreach($games as $game)
                                 <tr>
                                     <td>{{$game->week_number}}</td>
-                                    <td>@if($game->favorit == $game->winner)<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $game->favorit }} <font color="red"> <b>-{{$game->spread}}</b></font></td>
-                                    <td>@if($game->underdog == $game->winner)<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $game->underdog }} <font color="green"> <b>+{{$game->spread}}</b></font></td>
-                                    <td>@if($game->scored=='0')
+                                    <td>@if($game->winner == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $game->favorit }} <font color="red"> <b>-{{$game->spread}}</b></font></td>
+                                    <td>@if($game->winner == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $game->underdog }} <font color="green"> <b>+{{$game->spread}}</b></font></td>
+                                    <td>@if($game->scored =='0')
                                         @if($game->locked !='1') <a href="{{ route('game.edit',['id' => $game->id]) }}" class="btn btn-xs btn-info">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </a>

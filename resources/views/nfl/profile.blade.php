@@ -86,7 +86,7 @@
                                     Under Dogs
                                 </label>
                             </div>
-                            
+
                         </div>
 
 
@@ -138,7 +138,7 @@
                         <div class="form-group">
                             <div class="text-center">
                                 <button class="btn btn-success" type="submit">
-                                    Update Porfile
+                                    Update Profile
                                 </button>
                             </div>
                         </div>
