@@ -82,14 +82,12 @@
                                 <input type="text" name="team_name" value="{{ $user->team_name }}" class="form-control">
                             </div>
 
-                            @if($user->total_paid<'110')
+                           
                             <div class="form-group">
                                 <label for="paid">Total Paid to Date</label>
                                 <input type="text" name="paid" value="{{ $user->total_paid }}" class="form-control">
                             </div>
-                            @else
-                                <font color="green"> <b> Paid in Full</b></font>
-                            @endif
+
 
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
