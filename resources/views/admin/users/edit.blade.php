@@ -51,6 +51,7 @@
                         <form action="{{ route('admin.profile.update' , ['id'=>$user->id])  }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                         </br>
+
                             <div class="form-group">
                                 <label for="name">User Name</label>
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control">
