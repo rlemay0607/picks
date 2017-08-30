@@ -38,6 +38,6 @@ class LockSundayEarlyGames extends Command
      */
     public function handle()
     {
-        DB::table('user_picks')->delete();
+        DB::table('user_picks')->where('game_time','sunday_early' )->update(['locked'=>'1']);
     }
 }

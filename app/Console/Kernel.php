@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('LockSundayEarlyGames:locksunearly')
-            ->everyMinute();
+            ->sundays()->at('1:00')->timezone('America/New_York');
     }
 
     /**
