@@ -97,6 +97,7 @@ class UsersController extends Controller
         $user->avatar= $request->team;
         $user->total_paid = $request->paid;
         $user->active = $request->active;
+        $user->week_created = $request->week_created;
 
 
         $user->save();

@@ -82,6 +82,7 @@ class NflProfileController extends Controller
         $user->phone = $request->phone;
         $user->options = $request->options;
 
+
         $user->save();
 
 
