@@ -717,7 +717,7 @@ public function curentweek()
 
             }
 
-            return redirect()->route('mastergame.index');
+        return redirect()->back();
         }
 
 

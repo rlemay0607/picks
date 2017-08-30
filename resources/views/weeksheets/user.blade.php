@@ -117,7 +117,7 @@
 
                                     <td>@if($sundaymorning->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $sundaymorning->master_favorit }} <font color="red"> <b>-{{$sundaymorning->master_spread}}</b></font></td>
                                     <td>@if($sundaymorning->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $sundaymorning->master_underdog}} <font color="green"> <b>+{{$sundaymorning>master_spread}}</b></font></td>
-                                    <td>@if($sundaymorning>game_scored == '1')@if($sundaymorning>point == '1')<font color="green">Win</font>@endif @if($sundaymorning->point == '0')<font color="red">Loss</font>@endif @endif
+                                    <td>@if($sundaymorning>game_scored == '1')@if($sundaymorning->point == '1')<font color="green">Win</font>@endif @if($sundaymorning->point == '0')<font color="red">Loss</font>@endif @endif
                                     </td>
 
                                 </tr>
@@ -134,7 +134,7 @@
 
                                     <td>@if($sundayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $sundayearly->master_favorit }} <font color="red"> <b>-{{$sundayearly->master_spread}}</b></font></td>
                                     <td>@if($sundayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $sundayearly->master_underdog}} <font color="green"> <b>+{{$sundayearly->master_spread}}</b></font></td>
-                                    <td>@if($sundayearly->game_scored == '1')@if($sundayearly>point == '1')<font color="green">Win</font>@endif @if($sundayearly->point == '0')<font color="red">Loss</font>@endif @endif
+                                    <td>@if($sundayearly->game_scored == '1')@if($sundayearly->point == '1')<font color="green">Win</font>@endif @if($sundayearly->point == '0')<font color="red">Loss</font>@endif @endif
                                     </td>
 
                                 </tr>
@@ -150,7 +150,7 @@
 
                                     <td>@if($sundaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $sundaylate->master_favorit }} <font color="red"> <b>-{{$sundaylate->master_spread}}</b></font></td>
                                     <td>@if($sundaylate->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $sundaylate->master_underdog}} <font color="green"> <b>+{{$sundaylate->master_spread}}</b></font></td>
-                                    <td>@if($sundaylate->game_scored == '1')@if($sundaylate>point == '1')<font color="green">Win</font>@endif @if($sundaylate->point == '0')<font color="red">Loss</font>@endif @endif
+                                    <td>@if($sundaylate->game_scored == '1')@if($sundaylate->point == '1')<font color="green">Win</font>@endif @if($sundaylate->point == '0')<font color="red">Loss</font>@endif @endif
                                     </td>
 
                                 </tr>
@@ -167,7 +167,7 @@
 
                                     <td>@if($sundaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $sundaynight->master_favorit }} <font color="red"> <b>-{{$sundaynight->master_spread}}</b></font></td>
                                     <td>@if($sundaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $sundaynight->master_underdog}} <font color="green"> <b>+{{$sundaynight->master_spread}}</b></font></td>
-                                    <td>@if($sundaynight->game_scored == '1')@if($sundaynight>point == '1')<font color="green">Win</font>@endif @if($sundaynight->point == '0')<font color="red">Loss</font>@endif @endif
+                                    <td>@if($sundaynight->game_scored == '1')@if($sundaynight->point == '1')<font color="green">Win</font>@endif @if($sundaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                     </td>
 
                                 </tr>
@@ -183,7 +183,7 @@
 
                                     <td>@if($mondaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif{{ $mondaynight->master_favorit }} <font color="red"> <b>-{{$mondaynight->master_spread}}</b></font></td>
                                     <td>@if($mondaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></td>
-                                    <td>@if($mondaynight->game_scored == '1')@if($mondaynight>point == '1')<font color="green">Win</font>@endif @if($mondaynight->point == '0')<font color="red">Loss</font>@endif @endif
+                                    <td>@if($mondaynight->game_scored == '1')@if($mondaynight->point == '1')<font color="green">Win</font>@endif @if($mondaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                     </td>
 
                                 </tr>

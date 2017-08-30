@@ -60,21 +60,7 @@
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
                         <h4><b>Create a Pick</b></h4>
-                        <form action="{{ route('create.sheet')}}" method="post">
-                            {{csrf_field()}}
-                            <div class="form-group">
 
-
-
-                                <button class="btn btn-xs btn-success" type="submit">
-                                    Create Sheets
-                                </button>
-
-
-                            </div>
-
-
-                        </form>
 
                         <form action="{{ route('master.game.create') }}" method="post" >
                             {{csrf_field()}}
