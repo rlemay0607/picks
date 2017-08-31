@@ -39,5 +39,6 @@ class LockSundayEarlyGames extends Command
     public function handle()
     {
         DB::table('user_picks')->where('game_time','sunday_early' )->update(['locked'=>'1']);
+        DB::table('master_games')->where('game_time','sunday_early' )->update(['locked'=>'1']);
     }
 }

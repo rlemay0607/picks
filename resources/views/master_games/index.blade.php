@@ -48,8 +48,9 @@
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
-                        <h3>The current week is set to <b><font color="red"> week {{ $week->week_number}}</b></font>. Any new picks will be enter for the this week. If you need to change the current week please adjust the week in the settings section.
-                            </br></h3>
+                        <h3>The current week is set to <b><font color="red"> week {{ $week->week_number}}</font></b>. Any new picks will be enter for the this week. If you need to change the current week please adjust the week in the settings section.
+                            </h3>
+                        </br>
                         <h4>
                         If the game is locked the system will not allow you to edit it or delete the record.
                         </h4>
@@ -231,16 +232,7 @@
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </a>
                                     @endif
-                                        @if($game->locked !='1')
-                                        <a href="{{ route('game.lock',['id' => $game->id]) }}" class="btn btn-xs btn-success">
-                                            <span class="glyphicon glyphicon-check"></span>
-                                        </a>
-                                        @endif
-                                        @if($game->locked =='1')
-                                        <a href="{{ route('game.unlock',['id' => $game->id]) }}" class="btn btn-xs btn-success">
-                                            <span class="glyphicon glyphicon-unchecked"></span>
-                                        </a>
-                                        @endif
+
                                         @if($game->locked !='1')
                                         <a href="{{ route('game.delete',['id' => $game->id]) }}" class="btn btn-xs btn-danger">
                                             <span class="glyphicon glyphicon-remove-sign"></span>
