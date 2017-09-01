@@ -98,6 +98,7 @@
 
 
                                 <li><a href="{{ route('currentweek.pick') }}">My Weeks Picks</a> </li>
+                                <li><a href="{{ route('weekly.winners') }}">Weekly Winners</a> </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

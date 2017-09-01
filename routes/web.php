@@ -127,6 +127,10 @@ Route::get('/picks/currentweek',[
         'uses' => 'UserGameController@curentweek',
         'as' => 'currentweek.pick'
     ]);
+Route::get('/weekly/winners',[
+        'uses' => 'Standings@weeklywinners',
+        'as' => 'weekly.winners'
+    ]);
 
     Route::post('/user/profile/update',[
         'uses' => 'ProfilesController@update',
