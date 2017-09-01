@@ -57,7 +57,7 @@
 
                     <div class="col-xs-10  col-xs-offset-1">
                         <div class="text-center">
-                            <h4>Season Standings</h4>
+                            <h4>Season Winners</h4>
                         </div>
                         <table class="table" >
                             <thead>
