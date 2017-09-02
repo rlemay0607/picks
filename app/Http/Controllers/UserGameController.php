@@ -22,6 +22,13 @@ class UserGameController extends Controller
 
     }
 
+    public function adminuserpicks()
+    {
+
+        return view('user_picks.index')
+            ->with('picks', DB::table('user_picks')->get());
+    }
+
     public function updatepick(Request $request, $id)
     {
         $pick = UserPicks::find($id);

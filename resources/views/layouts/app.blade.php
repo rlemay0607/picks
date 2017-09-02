@@ -71,10 +71,13 @@
                                             <a href="{{ route('mastergame.index') }}">Master Game</a>
                                         </li>
                                         <li>
+                                            <a href="{{route('admin.user.pick')}}">User Picks <span class="badge">{{ \App\UserPicks::count() }}</span></a>
+                                        </li>
+                                        <li>
                                             <a href="{{ route('create.sheet') }}"
                                                onclick="event.preventDefault();
                                                      document.getElementById('create-sheet').submit();">
-                                                Create User Sheets <span class="badge">{{ \App\User::where('week_created', '!=' , \App\Setting::first()->week_number)->count() }}</span>
+                                                Create User Sheets <span class="badge">{{ \App\User::where([['week_created', '!=' , \App\Setting::first()->week_number],['active','1']])->count() }}</span>
                                             </a>
 
                                             <form id="create-sheet" action="{{ route('create.sheet') }}" method="POST" style="display: none;">

@@ -36,6 +36,7 @@ public function weeklywinners()
     {
         return view('weekly_winners.index')
             ->with('week1s', DB::table('week_points_view')->where([['week_number', '1'],['total', DB::table('week_points_view')->where('week_number', '1')->max('total')]])->get())
+            ->with('week1cs', DB::table('week_points_view')->where([['week_number', '1'],['total', DB::table('week_points_view')->where('week_number', '1')->max('total')]])->count())
             ->with('week2s', DB::table('week_points_view')->where([['week_number', '2'],['total', DB::table('week_points_view')->where('week_number', '2')->max('total')]])->get())
             ->with('week3s', DB::table('week_points_view')->where([['week_number', '3'],['total', DB::table('week_points_view')->where('week_number', '3')->max('total')]])->get())
             ->with('week4s', DB::table('week_points_view')->where([['week_number', '4'],['total', DB::table('week_points_view')->where('week_number', '4')->max('total')]])->get())

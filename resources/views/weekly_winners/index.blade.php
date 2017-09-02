@@ -66,17 +66,22 @@
                                 <th>Week</th>
                                 <th>Winner</th>
                                 <th>Points</th>
+
+
                             </tr>
                             </thead>
                             <tbody>
+
                             @foreach($week1s as $week1)
         <tr @if($week1->team_name == Auth::user() ->team_name) bgcolor="yellow" @endif>
+
 
                                     <td>1</td>
                                     <td>{{$week1->team_name}}</td>
                                     <td>{{$week1->total}}</td>
 
                                 </tr>
+
                             @endforeach
 
                             @foreach($week2s as $week2)

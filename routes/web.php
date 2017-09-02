@@ -127,6 +127,10 @@ Route::get('/picks/currentweek',[
         'uses' => 'UserGameController@curentweek',
         'as' => 'currentweek.pick'
     ]);
+Route::get('/admin/userspicks',[
+        'uses' => 'UserGameController@adminuserpicks',
+        'as' => 'admin.user.pick'
+    ])->middleware('admin');
 Route::get('/weekly/winners',[
         'uses' => 'Standings@weeklywinners',
         'as' => 'weekly.winners'
