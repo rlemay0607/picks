@@ -303,7 +303,7 @@
                                 @foreach($monday_night as $mondaynight)
                                     @if($mondaynight->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update', ['id' => $mondaynighty->id]) }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $mondaynight->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($mondaynight->pick=='f') checked @endif>{{ $mondaynight->master_favorit }} <font color="red"> <b>-{{$mondaynight->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($mondaynight->pick=='u') checked @endif> {{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></td>
