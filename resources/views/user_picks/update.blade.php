@@ -138,7 +138,7 @@
                                 @foreach($saturday_night as $saturdaynight)
                                     @if($saturdaynight->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $saturdaynight->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($saturdaynight->pick=='f') checked @endif>{{ $saturdaynight->master_favorit }} <font color="red"> <b>-{{$saturdaynight->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($saturdaynight->pick=='u') checked @endif> {{ $saturdaynight->master_underdog}} <font color="green"> <b>+{{$saturdaynight->master_spread}}</b></font></td>
@@ -171,7 +171,7 @@
                                 @foreach($sunday_morning as $sundaymorning)
                                     @if($sundaymorning->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $sundaymorning->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundaymorning->pick=='f') checked @endif>{{ $sundaymorning->master_favorit }} <font color="red"> <b>-{{$sundaymorning->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($sundaymorning->pick=='u') checked @endif> {{ $sundaymorning->master_underdog}} <font color="green"> <b>+{{$sundaymorning->master_spread}}</b></font></td>
@@ -204,7 +204,7 @@
                                 @foreach($sunday_early as $sundayearly)
                                     @if($sundayearly->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $sundayearly->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundayearly->pick=='f') checked @endif>{{ $sundayearly->master_favorit }} <font color="red"> <b>-{{$sundayearly->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($sundayearly->pick=='u') checked @endif> {{ $sundayearly->master_underdog}} <font color="green"> <b>+{{$sundayearly->master_spread}}</b></font></td>
@@ -237,7 +237,7 @@
                                 @foreach($sunday_late as $sundylate)
                                     @if($sundylate->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $sundylate->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundylate->pick=='f') checked @endif>{{ $sundylate->master_favorit }} <font color="red"> <b>-{{$sundylate->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($sundylate->pick=='u') checked @endif> {{ $sundylate->master_underdog}} <font color="green"> <b>+{{$sundylate->master_spread}}</b></font></td>
@@ -270,7 +270,7 @@
                                 @foreach($sunday_night as $sundaynight)
                                     @if($sundaynight->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $sundaynight->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundaynight->pick=='f') checked @endif>{{ $sundaynight->master_favorit }} <font color="red"> <b>-{{$sundaynight->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($sundaynight->pick=='u') checked @endif> {{ $sundaynight->master_underdog}} <font color="green"> <b>+{{$sundaynight->master_spread}}</b></font></td>
@@ -303,7 +303,7 @@
                                 @foreach($monday_night as $mondaynight)
                                     @if($mondaynight->locked != '1')
                                         <tr>
-                                            <form action="{{ route('user.pick.update') }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('user.pick.update', ['id' => $mondaynighty->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($mondaynight->pick=='f') checked @endif>{{ $mondaynight->master_favorit }} <font color="red"> <b>-{{$mondaynight->master_spread}}</b></font></td>
                                             <td><input type="radio" name="options" id="options2" value="u" @if ($mondaynight->pick=='u') checked @endif> {{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></td>
@@ -321,7 +321,7 @@
                                         <td>@if($mondaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></td>
                                         <td>@if($mondaynight->game_scored == '1')@if($mondaynight->point == '1')<font color="green">Win</font>@endif @if($mondaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-                                        
+
 
                                     </tr>
                                     @endif
