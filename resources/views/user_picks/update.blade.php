@@ -321,6 +321,7 @@
                                         <td>@if($mondaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif {{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></td>
                                         <td>@if($mondaynight->game_scored == '1')@if($mondaynight->point == '1')<font color="green">Win</font>@endif @if($mondaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
+                                        
 
                                     </tr>
                                     @endif
