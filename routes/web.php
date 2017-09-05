@@ -188,6 +188,10 @@ Route::get('/weekly/winners',[
         'uses' => 'UserGameController@createsheet',
         'as' => 'create.sheet'
     ])->middleware('admin');
+    Route::get('/delete/{id}', [
+        'uses' => 'UserGameController@destroy',
+        'as' => 'destroy.sheet'
+    ]);
 });
 
 Auth::routes();

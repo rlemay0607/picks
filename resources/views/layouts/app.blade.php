@@ -67,6 +67,7 @@
                                         <li>
                                             <a href="{{ route('settings') }}">Settings</a>
                                         </li>
+
                                         <li>
                                             <a href="{{ route('mastergame.index') }}">Master Game</a>
                                         </li>

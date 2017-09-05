@@ -817,6 +817,10 @@ public function curentweek()
      */
     public function destroy($id)
     {
-        //
+        $game = UserPicks::find($id);
+        $game->delete();
+
+        Session::flash('success', 'User has been deleted');
+        return redirect()->back();
     }
 }

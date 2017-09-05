@@ -67,7 +67,7 @@
                                     <td>{{$pick->user_id}}</td>
                                     <td>@if ($pick->pick == 'f') {{$pick->master_favorit}} @endif @if ($pick->pick == 'u') {{$pick->master_underdog}} @endif</td>
                                     <td>{{$pick->master_game_id}}</td>
-                                    <td><a href="" class="btn btn-xs btn-danger">
+                                    <td><a href="{{ route('destroy.sheet',['id' => $pick->id]) }}" class="btn btn-xs btn-danger">
                                             <span class="glyphicon glyphicon-remove-sign"></span>
                                         </a></td>
 
