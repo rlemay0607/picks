@@ -22,6 +22,10 @@ class SettingsController extends Controller
     {
         return view('admin.settings.settings')->with('settings', Setting::first());
     }
+ public function payments()
+    {
+        return view('payment');
+    }
 
     /**
      * Show the form for creating a new resource.

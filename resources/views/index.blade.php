@@ -65,6 +65,21 @@
         </div>
     </div>
     @endif
+        @if(Auth::user()->total_paid<'110')
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <form action="{{ route('payment') }}" method="get" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="text-center">
+                            <button class="btn btn-large btn-danger" type="submit">
+                                How to pay
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        @endif
     <div class="row">
 
         <div class="col-xs-12  col-md-8">

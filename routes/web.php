@@ -192,6 +192,10 @@ Route::get('/weekly/winners',[
         'uses' => 'UserGameController@destroy',
         'as' => 'destroy.sheet'
     ]);
+    Route::get('/payment/', [
+        'uses' => 'SettingsController@payments',
+        'as' => 'payment'
+    ]);
 });
 
 Auth::routes();
