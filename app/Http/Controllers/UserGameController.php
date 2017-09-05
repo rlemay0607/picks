@@ -68,6 +68,7 @@ class UserGameController extends Controller
             ;
     }
 
+
     public function week2()
     {
 
