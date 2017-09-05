@@ -61,6 +61,7 @@
                             <thead>
                             <tr>
                                 <th>Team Name</th>
+                                <th>Active</th>
 
                                 <th>Permissions</th>
                                 <th>Edit</th>
@@ -71,6 +72,7 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->team_name }}</td>
+                                <td>{{$user->active }}</td>
 
                                 <td>@if($user->admin)
                                         <a href="{{ route('user.not.admin',['id' => $user->id]) }}" class="btn btn-xs btn-danger">Remove Admin</a>
