@@ -76,6 +76,8 @@
                                 <td>{{$user->active }}</td>
                                 <td>{{$user->week_created}}</td>
 
+
+
                                 <td>@if($user->admin)
                                         <a href="{{ route('user.not.admin',['id' => $user->id]) }}" class="btn btn-xs btn-danger">Remove Admin</a>
                                     @else
@@ -83,7 +85,13 @@
                                     @endif</td>
                                 <td> <a href="{{ route('user.edit',['id' => $user->id]) }}" class="btn btn-xs btn-info">
                                         <span class="glyphicon glyphicon-pencil"></span>
-                                    </a></td>
+                                    </a>
+                                    @if($user->active == '0')
+                                        <a href="{{ route('user.delete',['id' => $user->id]) }}" class="btn btn-xs btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                        @endif
+                                </td>
 
 
 
