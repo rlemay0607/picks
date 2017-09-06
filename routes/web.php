@@ -151,7 +151,7 @@ Route::get('/weekly/winners',[
     Route::post('/userpick/update/{id}', [
         'uses' => 'UserGameController@updatepick',
         'as' => 'user.pick.update'
-    ])->middleware('admin');
+    ]);
     Route::post('/master_game/create', [
         'uses' => 'MasterGameController@store',
         'as' => 'master.game.create'
