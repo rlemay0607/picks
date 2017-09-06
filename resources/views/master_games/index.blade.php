@@ -239,6 +239,9 @@
                                         <a href="{{ route('game.delete',['id' => $game->id]) }}" class="btn btn-xs btn-danger">
                                             <span class="glyphicon glyphicon-remove-sign"></span>
                                         </a>
+                                                <a href="{{ route('game.lock',['id' => $game->id]) }}" class="btn btn-xs btn-info">
+                                                    <span class="glyphicon glyphicon-lock"></span>
+                                                </a>
                                             @endif
                                         @if($game->locked =='1')
                                             <a href="{{ route('game.score',['id' => $game->id]) }}" class="btn btn-xs btn-warning">
