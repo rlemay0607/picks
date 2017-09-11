@@ -61,9 +61,9 @@
                             <thead>
                             <tr>
                                 <th>Team Name</th>
+                                <th>ID</th>
                                 <th>Active</th>
                                 <th>Week Created</th>
-
                                 <th>Permissions</th>
                                 <th>Edit</th>
 
@@ -73,6 +73,7 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->team_name }}</td>
+                                <td>{{$user->id}}</td>
                                 <td>{{$user->active }}</td>
                                 <td>{{$user->week_created}}</td>
 
