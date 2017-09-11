@@ -37,6 +37,14 @@ class UserGameController extends Controller
         return redirect()->back();
 
     }
+    public function updateusersheet(Request $request, $id)
+    {
+        $pick = UserPicks::find($id);
+        $pick->pick = $request->options;
+        $pick->save();
+        return redirect()->back();
+
+    }
 
     public function week1()
     {

@@ -152,6 +152,7 @@ Route::get('/weekly/winners',[
         'uses' => 'UserGameController@updatepick',
         'as' => 'user.pick.update'
     ]);
+
     Route::post('/master_game/create', [
         'uses' => 'MasterGameController@store',
         'as' => 'master.game.create'
@@ -192,6 +193,7 @@ Route::get('/weekly/winners',[
         'uses' => 'UserGameController@destroy',
         'as' => 'destroy.sheet'
     ]);
+
     Route::get('/payment/', [
         'uses' => 'SettingsController@payments',
         'as' => 'payment'
