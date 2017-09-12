@@ -55,8 +55,8 @@ class FrontEndController extends Controller
             ->with('totalpoints', DB::table('user_picks')->where('user_id', $user->id)->sum('point'))
             ->with('seasoncorrect', DB::table('user_picks')->where([['user_id', $user->id],['point','1']])->count())
             ->with('weekcorrect', DB::table('user_picks')->where([['user_id', $user->id],['point','1'], ['week_number', $setting->week_number]])->count())
-            ->with('seasontotal', DB::table('user_picks')->where('user_id', $user->id)->count())
-            ->with('weektotal', DB::table('user_picks')->where([['user_id', $user->id],['week_number', $setting->week_number]])->count())
+            ->with('seasontotal', DB::table('user_picks')->where([['user_id', $user->id],['game_scored','1']])->count())
+            ->with('weektotal', DB::table('user_picks')->where([['user_id', $user->id],['game_scored','1'],['week_number', $setting->week_number]])->count())
 
             ->with('seasonpoints', DB::table('season_points_view')->orderBy('total', 'desc')->take(10)->get())
             ->with('weekpoints', DB::table('week_points_view')->where('week_number', $setting->week_number)->orderBy('total', 'desc')->take(10)->get())

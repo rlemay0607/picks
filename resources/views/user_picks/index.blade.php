@@ -57,7 +57,7 @@
                                 <th>Pick</th>
                                 <th>Game Number</th>
                                 <th>Delete</th>
-                                
+
                             </tr>
                             </thead>
                             <tbody>
