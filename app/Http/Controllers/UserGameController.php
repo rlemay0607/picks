@@ -708,6 +708,7 @@ public function curentweek()
                         'master_spread' => $mastergames->spread,
                         'game_time' => $mastergames->game_time,
                         'pick' => 'f',
+                        'home_team' =>$mastergames->home_team,
 
 
 
@@ -724,6 +725,7 @@ public function curentweek()
                         'master_game_id' => $mastergames->id,
                         'game_time' => $mastergames->game_time,
                         'pick' => 'u',
+                        'home_team' =>$mastergames->home_team,
 
                     ]);
             }

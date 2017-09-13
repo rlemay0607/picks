@@ -167,6 +167,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect">Home Team</label>
+                                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="home_team">
+                                    <option value="f"@if ($game->home_team =='f') selected @endif>Favorit</option>
+                                    <option value="u"@if ($game->home_team=='u') selected @endif>Underdog</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Game Time</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="game_time">
 

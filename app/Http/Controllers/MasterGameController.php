@@ -49,7 +49,8 @@ class MasterGameController extends Controller
             'underdog' => $request->underdog,
             'spread' => $request->spread,
             'game_time' => $request->game_time,
-            'week_number' =>$settings->week_number
+            'week_number' =>$settings->week_number,
+            'home_team' => $request->home_team
 
         ]);
 
