@@ -30,14 +30,18 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('LockSundayEarlyGames:locksunearly')
             ->sundays()->at('13:00')->timezone('America/New_York');
+
         $schedule->command('LockMondayNightGames:lockmonnight')
-            ->mondays()->at('19:00')->timezone('America/New_York');
-    $schedule->command('LockSundayLateGames:locksunlate')
+            ->mondays()->at('20:30')->timezone('America/New_York');
+
+        $schedule->command('LockSundayLateGames:locksunlate')
             ->mondays()->at('16:00')->timezone('America/New_York');
-    $schedule->command('LockSundayMorningGames:locksunmorning')
+
+        $schedule->command('LockSundayMorningGames:locksunmorning')
             ->sundays()->at('08:00')->timezone('America/New_York');
-    $schedule->command('LockSundayNightGames:locksunnight')
-            ->sundays()->at('19:00')->timezone('America/New_York');
+
+        $schedule->command('LockSundayNightGames:locksunnight')
+            ->sundays()->at('20:30')->timezone('America/New_York');
     }
 
     /**
