@@ -56,7 +56,6 @@
                                 <th>Underdog</th>
                                 <th>Results</th>
 
-
                             </tr>
                             </thead>
                             <tbody>
