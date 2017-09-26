@@ -96,6 +96,7 @@ class MasterGameController extends Controller
         $game->spread = $request->spread;
         $game->underdog = $request->underdog;
         $game->game_time = $request->game_time;
+        $game->home_team = $request->home_team;
 
         $game->save();
         return redirect()->route('mastergame.index');
