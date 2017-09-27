@@ -26,7 +26,7 @@ class UserGameController extends Controller
     {
 
         return view('user_picks.index')
-            ->with('picks', DB::table('user_picks')->get());
+            ->with('picks', DB::table('user_picks')->orderBy('week_number','dec')->get());
     }
 
     public function updatepick(Request $request, $id)
