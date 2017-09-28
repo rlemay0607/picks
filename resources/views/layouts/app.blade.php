@@ -67,10 +67,14 @@
                                         <li>
                                             <a href="{{ route('settings') }}">Settings</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('payment.index') }}">Payments</a>
+                                        </li>
 
                                         <li>
                                             <a href="{{ route('mastergame.index') }}">Master Game</a>
                                         </li>
+
                                         <li>
                                             <a href="{{route('admin.user.pick')}}">User Picks <span class="badge">{{ \App\UserPicks::count() }}</span></a>
                                         </li>

@@ -148,6 +148,15 @@ Route::get('/weekly/winners',[
         'uses' => 'MasterGameController@index',
         'as' => 'mastergame.index'
     ])->middleware('admin');
+
+
+    Route::get('/admin/payments', [
+        'uses' => 'PaymentControler@index',
+        'as' => 'payment.index'
+    ])->middleware('admin');
+
+
+
     Route::post('/userpick/update/{id}', [
         'uses' => 'UserGameController@updatepick',
         'as' => 'user.pick.update'

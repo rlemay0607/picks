@@ -42,6 +42,7 @@
 @include('layouts.app')
 @include('admin.includes.error')
 
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12  col-md-12">

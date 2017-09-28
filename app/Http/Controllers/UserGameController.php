@@ -8,7 +8,7 @@ use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Session;
+
 
 class UserGameController extends Controller
 {
@@ -34,6 +34,7 @@ class UserGameController extends Controller
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
         $pick->save();
+
         return redirect()->back();
 
     }
