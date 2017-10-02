@@ -62,9 +62,9 @@
                             <tr>
                                 <th>Team Name</th>
                                 <th>ID</th>
-                                <th>Active</th>
+
                                 <th>Total Paid</th>
-                                <th>Week Created</th>
+
                                 <th>Permissions</th>
                                 <th>Edit</th>
 
@@ -75,9 +75,9 @@
                             <tr>
                                 <td>{{ $user->team_name }}</td>
                                 <td>{{$user->id}}</td>
-                                <td>{{$user->active }}</td>
+
                                 <td>{{$user->total_paid}}</td>
-                                <td>{{$user->week_created}}</td>
+                                
 
 
 
