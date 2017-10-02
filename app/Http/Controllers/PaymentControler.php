@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaymentControler extends Controller
 {
@@ -13,7 +14,9 @@ class PaymentControler extends Controller
      */
     public function index()
     {
-        return view('payment.index');
+        return view('payment.index')
+            ->with('season', DB::table('user_picks')->distinct([ ['user_id']])->count()*2);
+
             }
 
     /**

@@ -55,7 +55,7 @@
         </div>
         <div class="col-sm-3" style="background-color:#64BB15; border-radius: 20px; padding-top: 5px; padding-bottom: 5px" align="center">
             <font color="white"><h4><b>Season Payout</b></h4>
-            <h4><c>$120</c></h4></font>
+            <h4><c>{{$season}}</c></h4></font>
         </div>
         <div class="col-sm-1">
             </br>
