@@ -61,6 +61,7 @@
                             <thead>
                             <tr>
                                 <th>Team Name</th>
+                                <th>Name</th>
                                 <th>ID</th>
 
                                 <th>Total Paid</th>
@@ -74,10 +75,11 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->team_name }}</td>
+                                <th>{{$user->name}}</th>
                                 <td>{{$user->id}}</td>
 
                                 <td>{{$user->total_paid}}</td>
-                                
+
 
 
 
