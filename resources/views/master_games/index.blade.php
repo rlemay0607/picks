@@ -41,6 +41,11 @@
 
 @include('layouts.app')
 @include('admin.includes.error')
+<div class="container">
+    @if (Session::has('flash_message'))
+        <div class="alert alert-success">{{Session::get('flash_message')}}</div>
+        @endif
+</div>
 
 <div class="container">
     <div class="row">

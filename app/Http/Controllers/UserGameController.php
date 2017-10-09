@@ -8,6 +8,7 @@ use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 
 class UserGameController extends Controller
@@ -34,7 +35,7 @@ class UserGameController extends Controller
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
         $pick->save();
-
+        Session::flash('flash_message', ($pick->master_favorit . ' vs '. $pick->master_underdog.' game was saved '));
         return redirect()->back();
 
     }
@@ -43,6 +44,7 @@ class UserGameController extends Controller
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
         $pick->save();
+
         return redirect()->back();
 
     }

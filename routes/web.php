@@ -136,6 +136,8 @@ Route::get('/weekly/winners',[
         'as' => 'weekly.winners'
     ]);
 
+    Route::post('/send', 'EmailController@send');
+
     Route::post('/user/profile/update',[
         'uses' => 'ProfilesController@update',
         'as' => 'user.profile.update'

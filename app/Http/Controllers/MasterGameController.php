@@ -52,11 +52,13 @@ class MasterGameController extends Controller
             'week_number' =>$settings->week_number,
             'home_team' => $request->home_team
 
-        ]);
+        ])
+        ;
 
 
-
+        Session::flash('flash_message', ($request->favorit . ' vs '. $request->underdog.' was created for week '.$settings->week_number));
         return redirect()->route('mastergame.index');
+
     }
 
     /**
@@ -141,6 +143,7 @@ class MasterGameController extends Controller
     public function score($id)
     {
         $game = MasterGames::find($id);
+        Session::flash('flash_message', ($game->favorit . ' vs '. $game->underdog.' was scored for week '.$game->week_number));
         return view('master_games.score')->with('game', $game);
 
     }
@@ -156,7 +159,8 @@ class MasterGameController extends Controller
         $game = MasterGames::find($id);
         $game->delete();
 
-        Session::flash('success', 'Game has been deleted');
+        Session::flash('flash_message', ($game->favorit . ' vs '. $game->underdog.' was deleted for week '.$game->week_number));
+
         return redirect()->back();
     }
     public function gamelock($id)
@@ -172,6 +176,7 @@ class MasterGameController extends Controller
                 $mastergames->save()
 
             ]);
+        Session::flash('flash_message', ($game->favorit . ' vs '. $game->underdog.' was locked for week '.$game->week_number));
 
         return redirect()->back();
 
@@ -189,6 +194,7 @@ class MasterGameController extends Controller
                 $mastergames->save()
 
             ]);
+        Session::flash('flash_message', ($game->favorit . ' vs '. $game->underdog.' was unlocked for week '.$game->week_number));
         return redirect()->back();
 
     }
