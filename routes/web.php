@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('send', 'EmailController@send');
+
 Route::group(['middleware'=>'auth'], function () {
     Route::get('/', [
         'uses' => 'FrontEndController@index',

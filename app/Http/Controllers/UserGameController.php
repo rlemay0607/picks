@@ -8,6 +8,7 @@ use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mail;
 use Session;
 
 
@@ -734,9 +735,16 @@ public function curentweek()
             }
 
             $user->week_created = $settings->week_number;
+
                         $user->save();
+            Mail::send(['text'=>'emails.send'],['user'=>$user, 'mastergames'=>$mastergames], function ($message) use($user, $mastergames){
+                $message->to($user->email, $user->name)->subject('This week picks are available');
+                $message->from('nflpool@sports-now.org', 'NFLPool');
+            });
 
             }
+
+
 
         return redirect()->back();
         }
