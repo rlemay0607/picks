@@ -7,6 +7,7 @@ use App\Setting;
 use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 
@@ -19,9 +20,11 @@ class MasterGameController extends Controller
      */
     public function index()
     {
+        $setting = Setting::first();
+
         return view('master_games.index')
             ->with('week', Setting::first())
-            ->with('games', MasterGames::orderBy('week_number', 'dec')->get());
+            ->with('games', DB::table('master_games')->where([['week_number', $setting->week_number]])->get());
     }
 
     /**
