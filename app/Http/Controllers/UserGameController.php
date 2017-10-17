@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Mail\WeeklyPicksCreated;
 use App\MasterGames;
 use App\Setting;
 use App\User;
@@ -738,7 +737,7 @@ public function curentweek()
             $user->week_created = $settings->week_number;
 
                         $user->save();
-          Mail::to($user->email)->send(new WeeklyPicksCreated($user,$mastergames, $settings));
+         /* Mail::to($user->email)->send(new WeeklyPicksCreated($user,$mastergames, $settings));*/
 
 
             }
