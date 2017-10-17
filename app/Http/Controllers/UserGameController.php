@@ -27,9 +27,9 @@ class UserGameController extends Controller
 
     public function adminuserpicks()
     {
-
+        $setting = Setting::first();
         return view('user_picks.index')
-            ->with('picks', DB::table('user_picks')->orderBy('week_number','dec')->get());
+            ->with('picks', DB::table('user_picks')->where([['week_number', $setting->week_number]])->orderBy('user_id','asc')->get());
     }
 
     public function updatepick(Request $request, $id)

@@ -16,11 +16,13 @@ class WeeklyPicksCreated extends Mailable
      *
      * @return void
      */
-    public function __construct($user, $mastergames, $settings)
+    public function __construct($user, $mastergames, $settings )
     {
         $this->user = $user;
         $this->mastergames = $mastergames;
         $this->settings = $settings;
+
+
     }
 
 

@@ -74,7 +74,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="{{route('admin.user.pick')}}">User Picks <span class="badge">{{ \App\UserPicks::count() }}</span></a>
+                                            <a href="{{route('admin.user.pick')}}">User Picks </a>
                                         </li>
                                         <li>
                                             <a href="{{ route('create.sheet') }}"
