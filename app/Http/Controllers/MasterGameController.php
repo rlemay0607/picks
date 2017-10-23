@@ -24,7 +24,7 @@ class MasterGameController extends Controller
 
         return view('master_games.index')
             ->with('week', Setting::first())
-            ->with('games', DB::table('master_games')->where([['week_number', $setting->week_number]])->get());
+            ->with('games', DB::table('master_games')->where([['week_number', $setting->week_number],['scored','0']])->get());
     }
 
     /**

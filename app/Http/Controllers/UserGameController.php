@@ -789,7 +789,7 @@ public function curentweek()
             ->with('saturday_early_count', DB::table('user_picks')->where([['week_number', $setting->week_number], ['game_time', 'saturday_early']])->count())
             ->with('saturday_late', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'saturday_late']])->get())
             ->with('saturday_late_count', DB::table('user_picks')->where([['week_number', $setting->week_number], ['game_time', 'saturday_late']])->count())
-           ->with('saturday_night', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'saturday_night']])->get())
+            ->with('saturday_night', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'saturday_night']])->get())
             ->with('saturday_night_count', DB::table('user_picks')->where([['week_number', $setting->week_number], ['game_time', 'saturday_night']])->count())
 
             ->with('sunday_early', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'sunday_early']])->get())
