@@ -6,6 +6,8 @@ We have released week {{$settings->week_number}} picks.  Remember you have up to
 
 
 
+
+
 @component('mail::button', ['url' => 'http://sports-now.org/picks/currentweek'])
     Enter Week {{$settings->week_number}} Picks
     @endcomponent

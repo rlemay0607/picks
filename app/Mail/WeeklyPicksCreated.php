@@ -9,17 +9,17 @@ use Illuminate\Queue\SerializesModels;
 class WeeklyPicksCreated extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user, $mastergames, $settings;
+    public $user, $mastergame, $settings;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $mastergames, $settings )
+    public function __construct($user, $mastergame, $settings )
     {
         $this->user = $user;
-        $this->mastergames = $mastergames;
+        $this->mastergame = $mastergame;
         $this->settings = $settings;
 
 
@@ -35,7 +35,7 @@ class WeeklyPicksCreated extends Mailable
     {
         return $this->markdown('emails.createpicks')
             ->with('user', $this->user)
-            ->with('mastergames', $this->mastergames)
+            ->with('mastergame', $this->mastergame)
             ->with('settings', $this->settings);
     }
 }

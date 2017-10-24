@@ -70,15 +70,15 @@
                                     <td>
                                     <div>
                                         <div>
-                                            @if($saturdayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif<font color="red"> <b>-{{$saturdayearly->master_spread}}</b></font>
+                                           @if($saturdayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif <font color="red"> <b>-{{$saturdayearly->master_spread}}</b></font>
                                         </div>
                                         <div>
                                             <div class="row">
                                                 <div class="col-xs-12  col-sm-8">
                                                     <div>
-                                                        @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif {{ $saturdayearly->master_favorit }}
+                                                        {{ $saturdayearly->master_favorit }}
                                                     </div>
-                                                    <div>
+                                                    <div >
                                                         {{number_format((\App\UserPicks::where([['master_game_id',$saturdayearly->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$saturdayearly->master_game_id)->count() )*100),2}}% User Picked
                                                     </div>
                                                 </div>
@@ -94,13 +94,9 @@
                                    <table>
                                                <tr>
                                        <td>
-                                           @if($saturdayearly->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif
-                                       </td>
-                                       <td>
-                                            @if ($saturdayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
-                                       </td>
-                                       <td>
-                                              <font color="green"> <b>+{{$saturdayearly->master_spread}}</b></font>   
+                                       @if ($saturdayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                       @if($saturdayearly->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif
+                                       <font color="green"> <b>+{{$saturdayearly->master_spread}}</b></font>
                                        </td>
                                    </tr>
                                    </table>
