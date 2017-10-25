@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         '\App\Console\Commands\LockSundayLateGames',
         '\App\Console\Commands\LockSundayMorningGames',
         '\App\Console\Commands\LockSundayNightGames',
+        '\App\Console\Commands\PaymentReminder',
     ];
 
     /**
@@ -42,6 +43,8 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('LockSundayNightGames:locksunnight')
             ->sundays()->at('20:30')->timezone('America/New_York');
+        $schedule->command('PaymentReminder:sendreminder')
+            ->tuesdays()->at('06:00')->timezone('America/New_York');
     }
 
     /**

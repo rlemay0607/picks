@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OutStandingPayment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mail;
 
 class PaymentControler extends Controller
 {
@@ -18,6 +21,18 @@ class PaymentControler extends Controller
             ->with('season', DB::table('user_picks')->distinct([ ['user_id']])->count()*2);
 
             }
+
+    public function payments()
+    {
+        /**
+         * Send outstanding payment notification
+         */
+        $users = User::where([['total_paid', '<', '110'],['active','1']])->get();
+        foreach ($users as $user){
+            Mail::to($user->email)->cc(['lemay.ryan@gmail.com','rlemay1@msn.com'])->send(new OutStandingPayment($user));
+        }
+
+    }
 
     /**
      * Show the form for creating a new resource.

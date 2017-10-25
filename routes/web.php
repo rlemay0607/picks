@@ -175,6 +175,7 @@ Route::get('/weekly/winners',[
         'uses' => 'MasterGameController@destroy',
         'as' => 'game.delete'
     ])->middleware('admin');
+    
     Route::get('game/lock/{id}',[
         'uses' => 'MasterGameController@gamelock',
         'as' => 'game.lock'
