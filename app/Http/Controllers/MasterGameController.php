@@ -104,6 +104,16 @@ class MasterGameController extends Controller
         $game->home_team = $request->home_team;
 
         $game->save();
+        $userpicks =  UserPicks::where('master_game_id', '=', $game->id)->get();
+        foreach ($userpicks as $userpick)
+            ([
+                $userpick->master_favorit = $request->favorit,
+            $userpick->master_spread = $request->spread,
+            $userpick->master_underdog = $request->underdog,
+            $userpick->game_time = $request->game_time,
+            $userpick->home_team = $request->home_team,
+        $userpick->save()
+        ]);
         return redirect()->route('mastergame.index');
     }
     public function gamescore(Request $request, $id)

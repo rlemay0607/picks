@@ -242,10 +242,10 @@
                                     <td>@if($game->winner == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->underdog }} <font color="green"> <b>+{{$game->spread}}</b></font></td>
                                     <td>{{$game->game_time}}</td>
                                     <td>@if($game->scored =='0')
-                                        @if($game->locked !='1') <a href="{{ route('game.edit',['id' => $game->id]) }}" class="btn btn-xs btn-info">
+                                        <a href="{{ route('game.edit',['id' => $game->id]) }}" class="btn btn-xs btn-info">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </a>
-                                    @endif
+
 
                                         @if($game->locked !='1')
                                         <a href="{{ route('game.delete',['id' => $game->id]) }}" class="btn btn-xs btn-danger">

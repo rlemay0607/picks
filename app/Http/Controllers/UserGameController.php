@@ -738,7 +738,8 @@ public function curentweek()
             $user->week_created = $settings->week_number;
 
                         $user->save();
-         Mail::to($user->email)->send(new WeeklyPicksCreated($user,$mastergame, $settings));
+
+         Mail::to($user->email)->send(new WeeklyPicksCreated($user, $settings));
 
 
             }
