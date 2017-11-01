@@ -175,7 +175,38 @@ Route::get('/weekly/winners',[
         'uses' => 'MasterGameController@destroy',
         'as' => 'game.delete'
     ])->middleware('admin');
-    
+    Route::get('finances',[
+        'uses' => 'FinancesController@index',
+        'as' => 'finances'
+    ])->middleware('admin');
+    Route::get('finaces/paid_in_full', [
+       'uses' => 'FinancesController@paidinfull',
+        'as' => 'finances.paidinfull'
+    ])->middleware('admin');
+    Route::get('finaces/un_paid', [
+        'uses' => 'FinancesController@notpaid',
+        'as' => 'finances.notpaid'
+    ])->middleware('admin');
+    Route::get('finaces/paid/{id}', [
+        'uses' => 'FinancesController@payment_full',
+        'as' => 'finances.payment.full'
+    ])->middleware('admin');
+    Route::get('finaces/paid/5/{id}', [
+        'uses' => 'FinancesController@payment_5',
+        'as' => 'finances.payment.5'
+    ])->middleware('admin');
+    Route::get('finaces/paid/10/{id}', [
+        'uses' => 'FinancesController@payment_10',
+        'as' => 'finances.payment.10'
+    ])->middleware('admin');
+    Route::get('finaces/paid/20/{id}', [
+        'uses' => 'FinancesController@payment_20',
+        'as' => 'finances.payment.20'
+    ])->middleware('admin');
+    Route::get('finaces/paid/50/{id}', [
+        'uses' => 'FinancesController@payment_50',
+        'as' => 'finances.payment.50'
+    ])->middleware('admin');
     Route::get('game/lock/{id}',[
         'uses' => 'MasterGameController@gamelock',
         'as' => 'game.lock'
