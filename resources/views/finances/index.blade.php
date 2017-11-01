@@ -38,7 +38,7 @@
 
                         <div class="col-xs-5" >
                             <div class="thumbnail title title-medium title-blue" style="background-color: #00cc66" align="center" >
-                                <h4> <b><font color="white"> Season Money</font></b> </h4>
+                                <h4> <b><font color="white"> Season Ending Money</font></b> </h4>
                                 <h4> <b><font color="white">${{($total_users * $settings->week_number)*2}}</font></b> </h4>
 
                             </div>
