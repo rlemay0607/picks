@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-       $user =  App\User::create([
+       App\User::create([
            'name' => 'Ryan LeMay',
             'email' => 'lemay.ryan@gmail.com',
             'password' => bcrypt('Pa$sw0rd'),
@@ -22,12 +22,7 @@ class UsersTableSeeder extends Seeder
            'total_paid' =>'0'
         ]);
 
-       App\Profile::create([
-          'user_id' => $user->id,
-           'about' => 'ServiceNow Developer for the past 6 years',
-           'avatar' => 'uploads/avatars/rlemay.jpeg',
-           'facebook' => 'facebook.com',
-           'youtube' => 'youtube.com'
-       ]);
+
+
     }
 }

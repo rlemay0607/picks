@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use App\UserPicks;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
@@ -154,6 +155,9 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+
+        UserPicks::where('user_id', $id)->delete();
+
 
         Session::flash('success', 'User has been deleted');
         return redirect()->back();
