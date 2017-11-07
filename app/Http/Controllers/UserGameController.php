@@ -36,6 +36,7 @@ class UserGameController extends Controller
     {
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
+        $pick->user_update_by = Auth::User()->name;
         $pick->save();
         Session::flash('flash_message', ($pick->master_favorit . ' vs '. $pick->master_underdog.' game was saved '));
         return redirect()->back();
