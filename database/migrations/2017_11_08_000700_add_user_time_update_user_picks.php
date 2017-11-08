@@ -15,7 +15,8 @@ class AddUserTimeUpdateUserPicks extends Migration
         Schema::table('user_picks', function($table)
         {
             $table->dateTime('user_update_time');
-            
+
+
         });
     }
 
