@@ -15,7 +15,7 @@ class UpdateUserUpdateTimeUserPicks extends Migration
         {
             Schema::table('user_picks', function($table)
             {
-                $table->dateTime('user_update_time')->nullable()->change();
+                $table->dateTime('user_update_time')->nullable()->default('2017-11-09 00:06:52')->change();
             });
         }
     }
