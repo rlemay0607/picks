@@ -703,7 +703,7 @@ public function curentweek()
         foreach ($userspicks as $userpick){
             $userpick->pick = 'f';
             $userpick->user_update_by = Auth::User()->name;
-            $userpick->user_update_time = Carbon::now();
+            /*$userpick->user_update_time = Carbon::now();*/
             $userpick->save();
         }
         return redirect()->back();
@@ -716,7 +716,7 @@ public function curentweek()
         foreach ($userspicks as $userpick){
             $userpick->pick = 'u';
             $userpick->user_update_by = Auth::User()->name;
-            $userpick->user_update_time = Carbon::now();
+            /*$userpick->user_update_time = Carbon::now();*/
             $userpick->save();
         }
         return redirect()->back();
@@ -730,7 +730,7 @@ public function curentweek()
         foreach ($userspicks as $userpick){
             $userpick->pick = substr(str_shuffle($str),1);
             $userpick->user_update_by = Auth::User()->name;
-            $userpick->user_update_time = Carbon::now();
+            /*$userpick->user_update_time = Carbon::now();*/
             $userpick->save();
         }
         return redirect()->back();
@@ -758,7 +758,7 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'f',
                         'home_team' =>$mastergames->home_team,
-                        'user_update_time' => Carbon::now(),
+                        /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);
             }
@@ -779,7 +779,7 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'home_team' =>$mastergames->home_team,
                         'pick' => substr(str_shuffle($str),1),
-                        'user_update_time' => Carbon::now(),
+                        /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);
 
@@ -796,7 +796,7 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'u',
                         'home_team' =>$mastergames->home_team,
-                        'user_update_time' => Carbon::now(),
+                        /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);
             }
