@@ -7,7 +7,6 @@ use App\Setting;
 use App\User;
 use App\UserPicks;
 use Auth;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
@@ -38,7 +37,6 @@ class UserGameController extends Controller
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
         $pick->user_update_by = Auth::User()->name;
-        $pick->user_update_time = Carbon::now();
         $pick->save();
         Session::flash('flash_message', ($pick->master_favorit . ' vs '. $pick->master_underdog.' game was saved '));
         return redirect()->back();
