@@ -161,6 +161,20 @@ Route::get('/weekly/winners',[
     ])->middleware('admin');
 
 
+    Route::get('set/fav',[
+        'uses' => 'UserGameController@setfavorites',
+        'as' => 'set.favorites'
+    ]);
+
+    Route::get('set/under',[
+        'uses' => 'UserGameController@setunderdog',
+        'as' => 'set.underdog'
+    ]);
+
+    Route::get('set/random',[
+        'uses' => 'UserGameController@setrandom',
+        'as' => 'set.random'
+    ]);
 
     Route::post('/userpick/update/{id}', [
         'uses' => 'UserGameController@updatepick',

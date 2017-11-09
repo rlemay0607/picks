@@ -49,6 +49,25 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-sm-5 col-sm-offset-1">
+            <b>Set all open picks to one of the following</b>
+        </div>
+    <div class="col-sm-6 col-xs-6">
+
+            <a href="{{ route('set.underdog') }}" class="btn btn-sm btn-success">
+                Underdogs
+            </a> <a href="{{ route('set.favorites') }}" class="btn btn-sm btn-success">
+                Favorites
+            </a>
+             <a href="{{ route('set.random') }}" class="btn btn-sm btn-success">
+                Random
+            </a>
+
+
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-xs-12  col-md-12">
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">

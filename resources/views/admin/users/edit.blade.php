@@ -112,6 +112,12 @@
                                         Under Dogs
                                     </label>
                                 </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="options" id="options3" value="r" @if ($user->options=='r') checked @endif>
+                                        Random
+                                    </label>
+                                </div>
                                 <div class="form-group">
                                     <label for="phone">Week Created</label>
                                     <input type="text" name="week_created" value="{{ $user->week_created }}" class="form-control">

@@ -47,6 +47,7 @@
     <div class="row">
         <div class="col-xs-12  col-md-12">
             <div class="sidebar  boxed  push-down-30">
+
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
                         <h3>{{$team_name->team_name}}</h3>

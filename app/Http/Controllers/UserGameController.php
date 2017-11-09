@@ -7,6 +7,7 @@ use App\Setting;
 use App\User;
 use App\UserPicks;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
@@ -37,7 +38,7 @@ class UserGameController extends Controller
         $pick = UserPicks::find($id);
         $pick->pick = $request->options;
         $pick->user_update_by = Auth::User()->name;
-        /*$pick->user_update_time = Carbon::now();*/
+        $pick->user_update_time = Carbon::now();
         $pick->save();
         Session::flash('flash_message', ($pick->master_favorit . ' vs '. $pick->master_underdog.' game was saved '));
         return redirect()->back();
@@ -695,6 +696,47 @@ public function curentweek()
             ;
     }
 
+    public function setfavorites()
+    {
+        $settings = Setting::first();
+        $userspicks = UserPicks::where([['week_number', $settings->week_number] , ['user_id' , Auth::User()->id], ['locked', NULL] ])->get();
+        foreach ($userspicks as $userpick){
+            $userpick->pick = 'f';
+            $userpick->user_update_by = Auth::User()->name;
+            $userpick->user_update_time = Carbon::now();
+            $userpick->save();
+        }
+        return redirect()->back();
+    }
+
+    public function setunderdog()
+    {
+        $settings = Setting::first();
+        $userspicks = UserPicks::where([['week_number', $settings->week_number] , ['user_id' , Auth::User()->id], ['locked', NULL] ])->get();
+        foreach ($userspicks as $userpick){
+            $userpick->pick = 'u';
+            $userpick->user_update_by = Auth::User()->name;
+            $userpick->user_update_time = Carbon::now();
+            $userpick->save();
+        }
+        return redirect()->back();
+    }
+
+    public function setrandom()
+    {
+        $settings = Setting::first();
+        $userspicks = UserPicks::where([['week_number', $settings->week_number] , ['user_id' , Auth::User()->id], ['locked', NULL] ])->get();
+        $str = 'uf';
+        foreach ($userspicks as $userpick){
+            $userpick->pick = substr(str_shuffle($str),1);
+            $userpick->user_update_by = Auth::User()->name;
+            $userpick->user_update_time = Carbon::now();
+            $userpick->save();
+        }
+        return redirect()->back();
+    }
+
+
     public function createsheet(Request $request)
     {
         $settings = Setting::first();
@@ -716,10 +758,31 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'f',
                         'home_team' =>$mastergames->home_team,
-
-
-
+                        'user_update_time' => Carbon::now(),
+                        'user_update_by' => 'System',
                     ]);
+            }
+
+            if ($user->options == 'r') {
+              $str = 'uf';
+                foreach ($mastergame as $mastergames)
+
+
+
+                    $userselection = UserPicks::create([
+                        'week_number' => $mastergames->week_number,
+                        'user_id' => $user->id,
+                        'master_game_id' => $mastergames->id,
+                        'master_favorit' => $mastergames->favorit,
+                        'master_underdog' => $mastergames->underdog,
+                        'master_spread' => $mastergames->spread,
+                        'game_time' => $mastergames->game_time,
+                        'home_team' =>$mastergames->home_team,
+                        'pick' => substr(str_shuffle($str),1),
+                        'user_update_time' => Carbon::now(),
+                        'user_update_by' => 'System',
+                    ]);
+
             }
             if ($user->options == 'u') {
                 foreach ($mastergame as $mastergames)
@@ -733,7 +796,8 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'u',
                         'home_team' =>$mastergames->home_team,
-
+                        'user_update_time' => Carbon::now(),
+                        'user_update_by' => 'System',
                     ]);
             }
 
