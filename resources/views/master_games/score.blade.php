@@ -48,9 +48,12 @@
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">
                     <div class="col-xs-10  col-xs-offset-1">
-                    <h3>Select the winner of the game</h3>
+                        <h3>{{$game->playoff_name}}</h3>
+
+                        <h4>{{$game->game_type}}</h4>
                         <form action="{{ route('master.game.score', ['id'=>$game->id]) }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
+
                             <div class="form-group">
                                 <div class="radio">
                                     <label>

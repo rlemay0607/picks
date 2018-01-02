@@ -71,6 +71,7 @@
                             </thead>
                             <tbody>
                             @foreach($weekpoints as $weekpoint)
+
                                 <tr @if($weekpoint->team_name == Auth::user() ->team_name) bgcolor="yellow" @endif>
 
                                     <td>{{$weekpoint->team_name}}</td>

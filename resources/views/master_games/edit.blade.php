@@ -51,11 +51,20 @@
                         <form action="{{ route('game.update', ['id'=>$game->id]) }}" method="post" >
                             {{csrf_field()}}
                         </br>
+                            <div class="form-group">
+                                <label for="playoff_name">Playoff Name</label>
+                                <input type="text" name="playoff_name" value="{{$game->playoff_name}}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="game_tyoe">Game Type</label>
+                                <input type="text" name="game_type" value="{{$game->game_type}}" class="form-control">
+                            </div>
 
                             <div class="form-group">
 
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Favorit</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="favorit">
+                                    <option value="Over" @if ($game->favorit=="Over") selected @endif>Over</option>
                                     <option value="Arizona Cardinals" @if ($game->favorit=='Arizona Cardinals') selected @endif>Arizona Cardinals</option>
                                     <option value="Atlanata Falcon"@if ($game->favorit=='Atlanata Falcon') selected @endif>Atlanata Falcons</option>
                                     <option value="Baltimore Ravens"@if ($game->favorit=='Baltimore Ravens') selected @endif>Baltimore Ravens</option>
@@ -95,42 +104,113 @@
 
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Spread</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="spread">
-                                    <option value="0.5"@if ($game->spread=='0.5') selected @endif>{{$game->spread}}</option>
-                                    <option value="1.5"@if ($game->spread=='1.5') selected @endif>1.5</option>
-                                    <option value="2.5"@if ($game->spread=='2.5') selected @endif>2.5</option>
-                                    <option value="3.5"@if ($game->spread=='3.5') selected @endif>3.5</option>
-                                    <option value="4.5"@if ($game->spread=='4.5') selected @endif>4.5</option>
-                                    <option value="5.5"@if ($game->spread=='5.5') selected @endif>5.5</option>
-                                    <option value="6.5"@if ($game->spread=='6.5') selected @endif>6.5</option>
-                                    <option value="7.5"@if ($game->spread=='7.5') selected @endif>7.5</option>
-                                    <option value="8.5"@if ($game->spread=='8.5') selected @endif>8.5</option>
-                                    <option value="9.5"@if ($game->spread=='9.5') selected @endif>9.5</option>
-                                    <option value="10.5"@if ($game->spread=='10.5') selected @endif>10.5</option>
-                                    <option value="11.5"@if ($game->spread=='11.5') selected @endif>11.5</option>
-                                    <option value="12.5"@if ($game->spread=='12.5') selected @endif>12.5</option>
-                                    <option value="13.5"@if ($game->spread=='13.5') selected @endif>13.5</option>
-                                    <option value="14.5"@if ($game->spread=='14.5') selected @endif>14.5</option>
-                                    <option value="15.5"@if ($game->spread=='15.5') selected @endif>15.5</option>
-                                    <option value="16.5"@if ($game->spread=='16.5') selected @endif>16.5</option>
-                                    <option value="17.5"@if ($game->spread=='17.5') selected @endif>17.5</option>
-                                    <option value="18.5"@if ($game->spread=='18.5') selected @endif>18.5</option>
-                                    <option value="19.5"@if ($game->spread=='19.5') selected @endif>19.5</option>
-                                    <option value="20.5"@if ($game->spread=='20.5') selected @endif>20.5</option>
-                                    <option value="21.5"@if ($game->spread=='21.5') selected @endif>21.5</option>
-                                    <option value="22.5"@if ($game->spread=='22.5') selected @endif>22.5</option>
-                                    <option value="23.5"@if ($game->spread=='23.5') selected @endif>23.5</option>
-                                    <option value="24.5"@if ($game->spread=='24.5') selected @endif>24.5</option>
-                                    <option value="25.5"@if ($game->spread=='25.5') selected @endif>25.5</option>
-                                    <option value="26.5"@if ($game->spread=='26.5') selected @endif>26.5</option>
-                                    <option value="27.5"@if ($game->spread=='27.5') selected @endif>27.5</option>
-                                    <option value="28.5"@if ($game->spread=='28.5') selected @endif>28.5</option>
-                                    <option value="29.5"@if ($game->spread=='29.5') selected @endif>29.5</option>
+                                    <option value="0.5" @if ($game->spread=='0.5') selected @endif>0.5</option>
+                                    <option value="1.5" @if ($game->spread=='1.5') selected @endif>1.5</option>
+                                    <option value="2.5" @if ($game->spread=='2.5') selected @endif>2.5</option>
+                                    <option value="3.5" @if ($game->spread=='3.5') selected @endif>3.5</option>
+                                    <option value="4.5" @if ($game->spread=='4.5') selected @endif>4.5</option>
+                                    <option value="5.5" @if ($game->spread=='5.5') selected @endif>5.5</option>
+                                    <option value="6.5" @if ($game->spread=='6.5') selected @endif>6.5</option>
+                                    <option value="7.5" @if ($game->spread=='7.5') selected @endif>7.5</option>
+                                    <option value="8.5" @if ($game->spread=='8.5') selected @endif>8.5</option>
+                                    <option value="9.5" @if ($game->spread=='9.5') selected @endif>9.5</option>
+                                    <option value="10.5" @if ($game->spread=='10.5') selected @endif>10.5</option>
+                                    <option value="11.5" @if ($game->spread=='11.5') selected @endif>11.5</option>
+                                    <option value="12.5" @if ($game->spread=='12.5') selected @endif>12.5</option>
+                                    <option value="13.5" @if ($game->spread=='13.5') selected @endif>13.5</option>
+                                    <option value="14.5" @if ($game->spread=='14.5') selected @endif>14.5</option>
+                                    <option value="15.5" @if ($game->spread=='15.5') selected @endif>15.5</option>
+                                    <option value="16.5" @if ($game->spread=='16.5') selected @endif>16.5</option>
+                                    <option value="17.5" @if ($game->spread=='17.5') selected @endif>17.5</option>
+                                    <option value="18.5" @if ($game->spread=='18.5') selected @endif>18.5</option>
+                                    <option value="19.5" @if ($game->spread=='19.5') selected @endif>19.5</option>
+                                    <option value="20.5" @if ($game->spread=='20.5') selected @endif>20.5</option>
+                                    <option value="21.5" @if ($game->spread=='21.5') selected @endif>21.5</option>
+                                    <option value="22.5" @if ($game->spread=='22.5') selected @endif>22.5</option>
+                                    <option value="23.5" @if ($game->spread=='23.5') selected @endif>23.5</option>
+                                    <option value="24.5" @if ($game->spread=='24.5') selected @endif>24.5</option>
+                                    <option value="25.5" @if ($game->spread=='25.5') selected @endif>25.5</option>
+                                    <option value="26.5" @if ($game->spread=='26.5') selected @endif>26.5</option>
+                                    <option value="27.5" @if ($game->spread=='27.5') selected @endif>27.5</option>
+                                    <option value="28.5" @if ($game->spread=='28.5') selected @endif>28.5</option>
+                                    <option value="29.5" @if ($game->spread=='29.5') selected @endif>29.5</option>
+                                    <option value="30.5" @if ($game->spread=='30.5') selected @endif>30.5</option>
+                                    <option value="31.5" @if ($game->spread=='31.5') selected @endif>31.5</option>
+                                    <option value="32.5" @if ($game->spread=='32.5') selected @endif>32.5</option>
+                                    <option value="33.5" @if ($game->spread=='33.5') selected @endif>33.5</option>
+                                    <option value="34.5" @if ($game->spread=='34.5') selected @endif>34.5</option>
+                                    <option value="35.5" @if ($game->spread=='35.5') selected @endif>35.5</option>
+                                    <option value="36.5" @if ($game->spread=='36.5') selected @endif>36.5</option>
+                                    <option value="37.5" @if ($game->spread=='37.5') selected @endif>37.5</option>
+                                    <option value="38.5" @if ($game->spread=='38.5') selected @endif>38.5</option>
+                                    <option value="39.5" @if ($game->spread=='39.5') selected @endif>39.5</option>
+                                    <option value="40.5" @if ($game->spread=='40.5') selected @endif>40.5</option>
+                                    <option value="41.5" @if ($game->spread=='41.5') selected @endif>41.5</option>
+                                    <option value="42.5" @if ($game->spread=='42.5') selected @endif>42.5</option>
+                                    <option value="43.5" @if ($game->spread=='43.5') selected @endif>43.5</option>
+                                    <option value="44.5" @if ($game->spread=='44.5') selected @endif>44.5</option>
+                                    <option value="45.5" @if ($game->spread=='45.5') selected @endif>45.5</option>
+                                    <option value="46.5" @if ($game->spread=='46.5') selected @endif>46.5</option>
+                                    <option value="47.5" @if ($game->spread=='47.5') selected @endif>47.5</option>
+                                    <option value="48.5" @if ($game->spread=='48.5') selected @endif>48.5</option>
+                                    <option value="49.5" @if ($game->spread=='49.5') selected @endif>49.5</option>
+                                    <option value="50.5" @if ($game->spread=='50.5') selected @endif>50.5</option>
+                                    <option value="51.5" @if ($game->spread=='51.5') selected @endif>51.5</option>
+                                    <option value="52.5" @if ($game->spread=='52.5') selected @endif>52.5</option>
+                                    <option value="53.5" @if ($game->spread=='53.5') selected @endif>53.5</option>
+                                    <option value="54.5" @if ($game->spread=='54.5') selected @endif>54.5</option>
+                                    <option value="55.5" @if ($game->spread=='55.5') selected @endif>55.5</option>
+                                    <option value="56.5" @if ($game->spread=='56.5') selected @endif>56.5</option>
+                                    <option value="57.5" @if ($game->spread=='57.5') selected @endif>57.5</option>
+                                    <option value="58.5" @if ($game->spread=='58.5') selected @endif>58.5</option>
+                                    <option value="59.5" @if ($game->spread=='59.5') selected @endif>59.5</option>
+                                    <option value="60.5" @if ($game->spread=='60.5') selected @endif>60.5</option>
+                                    <option value="61.5" @if ($game->spread=='61.5') selected @endif>61.5</option>
+                                    <option value="62.5" @if ($game->spread=='62.5') selected @endif>62.5</option>
+                                    <option value="63.5" @if ($game->spread=='63.5') selected @endif>63.5</option>
+                                    <option value="64.5" @if ($game->spread=='64.5') selected @endif>64.5</option>
+                                    <option value="65.5" @if ($game->spread=='65.5') selected @endif>65.5</option>
+                                    <option value="66.5" @if ($game->spread=='66.5') selected @endif>66.5</option>
+                                    <option value="67.5" @if ($game->spread=='67.5') selected @endif>67.5</option>
+                                    <option value="68.5" @if ($game->spread=='68.5') selected @endif>68.5</option>
+                                    <option value="69.5" @if ($game->spread=='69.5') selected @endif>69.5</option>
+                                    <option value="70.5" @if ($game->spread=='70.5') selected @endif>70.5</option>
+                                    <option value="71.5" @if ($game->spread=='71.5') selected @endif>71.5</option>
+                                    <option value="72.5" @if ($game->spread=='72.5') selected @endif>72.5</option>
+                                    <option value="73.5" @if ($game->spread=='73.5') selected @endif>73.5</option>
+                                    <option value="74.5" @if ($game->spread=='74.5') selected @endif>74.5</option>
+                                    <option value="75.5" @if ($game->spread=='75.5') selected @endif>75.5</option>
+                                    <option value="76.5" @if ($game->spread=='76.5') selected @endif>76.5</option>
+                                    <option value="77.5" @if ($game->spread=='77.5') selected @endif>77.5</option>
+                                    <option value="78.5" @if ($game->spread=='78.5') selected @endif>78.5</option>
+                                    <option value="79.5" @if ($game->spread=='79.5') selected @endif>79.5</option>
+                                    <option value="80.5" @if ($game->spread=='80.5') selected @endif>80.5</option>
+                                    <option value="81.5" @if ($game->spread=='81.5') selected @endif>81.5</option>
+                                    <option value="82.5" @if ($game->spread=='82.5') selected @endif>82.5</option>
+                                    <option value="83.5" @if ($game->spread=='83.5') selected @endif>83.5</option>
+                                    <option value="84.5" @if ($game->spread=='84.5') selected @endif>84.5</option>
+                                    <option value="85.5" @if ($game->spread=='85.5') selected @endif>85.5</option>
+                                    <option value="86.5" @if ($game->spread=='86.5') selected @endif>86.5</option>
+                                    <option value="87.5" @if ($game->spread=='87.5') selected @endif>87.5</option>
+                                    <option value="88.5" @if ($game->spread=='88.5') selected @endif>88.5</option>
+                                    <option value="89.5" @if ($game->spread=='89.5') selected @endif>89.5</option>
+                                    <option value="90.5" @if ($game->spread=='90.5') selected @endif>90.5</option>
+                                    <option value="91.5" @if ($game->spread=='91.5') selected @endif>91.5</option>
+                                    <option value="92.5" @if ($game->spread=='92.5') selected @endif>92.5</option>
+                                    <option value="93.5" @if ($game->spread=='93.5') selected @endif>93.5</option>
+                                    <option value="94.5" @if ($game->spread=='94.5') selected @endif>94.5</option>
+                                    <option value="95.5" @if ($game->spread=='95.5') selected @endif>95.5</option>
+                                    <option value="96.5" @if ($game->spread=='96.5') selected @endif>96.5</option>
+                                    <option value="97.5" @if ($game->spread=='97.5') selected @endif>97.5</option>
+                                    <option value="98.5" @if ($game->spread=='98.5') selected @endif>98.5</option>
+                                    <option value="99.5" @if ($game->spread=='99.5') selected @endif>99.5</option>
 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
+                                    <option value="Under" @if ($game->underdog=="Over") selected @endif>Under</option>
                                     <option value="Arizona Cardinals" @if ($game->underdog=='Arizona Cardinals') selected @endif>Arizona Cardinals</option>
                                     <option value="Atlanata Falcon"@if ($game->underdog=='Atlanata Falcon') selected @endif>Atlanata Falcons</option>
                                     <option value="Baltimore Ravens"@if ($game->underdog=='Baltimore Ravens') selected @endif>Baltimore Ravens</option>

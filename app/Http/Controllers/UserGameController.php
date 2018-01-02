@@ -756,6 +756,8 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'f',
                         'home_team' =>$mastergames->home_team,
+                        'playoff_name' =>$mastergames->playoff_name,
+                        'game_type' => $mastergames->game_type,
                         /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);
@@ -777,6 +779,8 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'home_team' =>$mastergames->home_team,
                         'pick' => substr(str_shuffle($str),1),
+                        'playoff_name' =>$mastergames->playoff_name,
+                        'game_type' => $mastergames->game_type,
                         /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);
@@ -794,6 +798,8 @@ public function curentweek()
                         'game_time' => $mastergames->game_time,
                         'pick' => 'u',
                         'home_team' =>$mastergames->home_team,
+                        'playoff_name' =>$mastergames->playoff_name,
+                        'game_type' => $mastergames->game_type,
                         /*'user_update_time' => Carbon::now(),*/
                         'user_update_by' => 'System',
                     ]);

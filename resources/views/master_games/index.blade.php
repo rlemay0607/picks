@@ -70,10 +70,19 @@
 
                         <form action="{{ route('master.game.create') }}" method="post" >
                             {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="playoff_name">Playoff Name</label>
+                                <input type="text" name="playoff_name"  class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="game_type">Game Type</label>
+                                <input type="text" name="game_type"  class="form-control">
+                            </div>
 
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Favorit</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="favorit">
+                                    <option value="Over">Over</option>
                                     <option value="Arizona Cardinals">Arizona Cardinals</option>
                                     <option value="Atlanata Falcon">Atlanata Falcons</option>
                                     <option value="Baltimore Ravens">Baltimore Ravens</option>
@@ -142,13 +151,85 @@
                                     <option value="26.5">26.5</option>
                                     <option value="27.5">27.5</option>
                                     <option value="28.5">28.5</option>
-                                    <option value="29.">29.5</option>
+                                    <option value="29.5">29.5</option>
+                                    <option value="30.5">30.5</option>
+                                    <option value="31.5">31.5</option>
+                                    <option value="32.5">32.5</option>
+                                    <option value="33.5">33.5</option>
+                                    <option value="34.5">34.5</option>
+                                    <option value="35.5">35.5</option>
+                                    <option value="36.5">36.5</option>
+                                    <option value="37.5">37.5</option>
+                                    <option value="38.5">38.5</option>
+                                    <option value="39.5">39.5</option>
+                                    <option value="40.5">40.5</option>
+                                    <option value="41.5">41.5</option>
+                                    <option value="42.5">42.5</option>
+                                    <option value="43.5">43.5</option>
+                                    <option value="44.5">44.5</option>
+                                    <option value="45.5">45.5</option>
+                                    <option value="46.5">46.5</option>
+                                    <option value="47.5">47.5</option>
+                                    <option value="48.5">48.5</option>
+                                    <option value="49.5">49.5</option>
+                                    <option value="50.5">50.5</option>
+                                    <option value="51.5">51.5</option>
+                                    <option value="52.5">52.5</option>
+                                    <option value="53.5">53.5</option>
+                                    <option value="54.5">54.5</option>
+                                    <option value="55.5">55.5</option>
+                                    <option value="56.5">56.5</option>
+                                    <option value="57.5">57.5</option>
+                                    <option value="58.5">58.5</option>
+                                    <option value="59.5">59.5</option>
+                                    <option value="60.5">60.5</option>
+                                    <option value="61.5">61.5</option>
+                                    <option value="62.5">62.5</option>
+                                    <option value="63.5">63.5</option>
+                                    <option value="64.5">64.5</option>
+                                    <option value="65.5">65.5</option>
+                                    <option value="66.5">66.5</option>
+                                    <option value="67.5">67.5</option>
+                                    <option value="68.5">68.5</option>
+                                    <option value="69.5">69.5</option>
+                                    <option value="70.5">70.5</option>
+                                    <option value="71.5">71.5</option>
+                                    <option value="72.5">72.5</option>
+                                    <option value="73.5">73.5</option>
+                                    <option value="74.5">74.5</option>
+                                    <option value="75.5">75.5</option>
+                                    <option value="76.5">76.5</option>
+                                    <option value="77.5">77.5</option>
+                                    <option value="78.5">78.5</option>
+                                    <option value="79.5">79.5</option>
+                                    <option value="80.5">80.5</option>
+                                    <option value="81.5">81.5</option>
+                                    <option value="82.5">82.5</option>
+                                    <option value="83.5">83.5</option>
+                                    <option value="84.5">84.5</option>
+                                    <option value="85.5">85.5</option>
+                                    <option value="86.5">86.5</option>
+                                    <option value="87.5">87.5</option>
+                                    <option value="88.5">88.5</option>
+                                    <option value="89.5">89.5</option>
+                                    <option value="90.5">90.5</option>
+                                    <option value="91.5">91.5</option>
+                                    <option value="92.5">92.5</option>
+                                    <option value="93.5">93.5</option>
+                                    <option value="94.5">94.5</option>
+                                    <option value="95.5">95.5</option>
+                                    <option value="96.5">96.5</option>
+                                    <option value="97.5">97.5</option>
+                                    <option value="98.5">98.5</option>
+                                    <option value="99.5">99.5</option>
+
 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
+                                    <option value="Under">Under</option>
                                     <option value="Arizona Cardinals">Arizona Cardinals</option>
                                     <option value="Atlanata Falcon">Atlanata Falcons</option>
                                     <option value="Baltimore Ravens">Baltimore Ravens</option>
@@ -228,6 +309,7 @@
                                 <th>Week</th>
                                 <th>Favorit</th>
                                 <th>Underdog</th>
+                                <th>Playoff Name</th>
                                 <th>Time</th>
                                 <th>Action</th>
 
@@ -240,6 +322,7 @@
                                     <td>{{$game->week_number}}</td>
                                     <td>@if($game->winner == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->favorit }} <font color="red"> <b>-{{$game->spread}}</b></font></td>
                                     <td>@if($game->winner == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->underdog }} <font color="green"> <b>+{{$game->spread}}</b></font></td>
+                                    <td>{{$game->playoff_name}}</td>
                                     <td>{{$game->game_time}}</td>
                                     <td>@if($game->scored =='0')
                                         <a href="{{ route('game.edit',['id' => $game->id]) }}" class="btn btn-xs btn-info">

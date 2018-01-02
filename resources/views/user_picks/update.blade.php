@@ -96,6 +96,10 @@
                                 @foreach($saturday_early as $saturdayearly)
                                     @if($saturdayearly->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$saturdayearly->playoff_name}} {{$saturdayearly->game_type}}</th>
+                                        </tr>
+
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $saturdayearly->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($saturdayearly->pick=='f') checked @endif> @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdayearly->master_favorit }} <font color="red"> <b>-{{$saturdayearly->master_spread}}</b></font></td>
@@ -109,6 +113,9 @@
                                         </tr>
                                         @endif
                                     @if($saturdayearly->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$saturdayearly->playoff_name}} {{$saturdayearly->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($saturdayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif  {{ $saturdayearly->master_favorit }} <font color="red"> <b>-{{$saturdayearly->master_spread}}</b></font></td>
                                         <td>@if($saturdayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdayearly->master_underdog}} <font color="green"> <b>+{{$saturdayearly->master_spread}}</b></font></td>
@@ -129,6 +136,9 @@
                                 @foreach($saturday_late as $saturdaylate)
                                     @if($saturdaylate->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$saturdaylate->playoff_name}} {{$saturdaylate->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $saturdaylate->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($saturdaylate->pick=='f') checked @endif>  @if ($saturdaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaylate->master_favorit }} <font color="red"> <b>-{{$saturdaylate->master_spread}}</b></font></td>
@@ -142,6 +152,9 @@
                                         </tr>
                                         @endif
                                     @if($saturdaylate->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$saturdaylate->playoff_name}} {{$saturdaylate->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($saturdaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaylate->master_favorit }} <font color="red"> <b>-{{$saturdaylate->master_spread}}</b></font></td>
                                         <td>@if($saturdaylate->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaylate->master_underdog}} <font color="green"> <b>+{{$saturdaylate->master_spread}}</b></font></td>
@@ -162,6 +175,9 @@
                                 @foreach($saturday_night as $saturdaynight)
                                     @if($saturdaynight->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$saturdaynight->playoff_name}} {{$saturdaynight->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $saturdaynight->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($saturdaynight->pick=='f') checked @endif> @if ($saturdaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaynight->master_favorit }} <font color="red"> <b>-{{$saturdaynight->master_spread}}</b></font></td>
@@ -175,6 +191,9 @@
                                         </tr>
                                         @endif
                                     @if($saturdaynight->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$saturdaynight->playoff_name}} {{$saturdaynight->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($saturdaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaynight->master_favorit }} <font color="red"> <b>-{{$saturdaynight->master_spread}}</b></font></td>
                                         <td>@if($saturdaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaynight->master_underdog}} <font color="green"> <b>+{{$saturdaynight->master_spread}}</b></font></td>
@@ -195,6 +214,9 @@
                                 @foreach($sunday_morning as $sundaymorning)
                                     @if($sundaymorning->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$sundaymorning->playoff_name}} {{$sundaymorning->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $sundaymorning->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundaymorning->pick=='f') checked @endif> @if ($sundaymorning->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaymorning->master_favorit }} <font color="red"> <b>-{{$sundaymorning->master_spread}}</b></font></td>
@@ -208,6 +230,9 @@
                                         </tr>
                                         @endif
                                     @if($sundaymorning->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$sundaymorning->playoff_name}} {{$sundaymorning->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($sundaymorning->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaymorning->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaymorning->master_favorit }} <font color="red"> <b>-{{$sundaymorning->master_spread}}</b></font></td>
                                         <td>@if($sundaymorning->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaymorning->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaymorning->master_underdog}} <font color="green"> <b>+{{$sundaymorning->master_spread}}</b></font></td>
@@ -228,6 +253,9 @@
                                 @foreach($sunday_early as $sundayearly)
                                     @if($sundayearly->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$sundayearly->playoff_name}} {{$sundayearly->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $sundayearly->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundayearly->pick=='f') checked @endif> @if ($sundayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_favorit }} <font color="red"> <b>-{{$sundayearly->master_spread}}</b></font></td>
@@ -241,6 +269,9 @@
                                         </tr>
                                         @endif
                                     @if($sundayearly->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$sundayearly->playoff_name}} {{$sundayearly->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($sundayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_favorit }} <font color="red"> <b>-{{$sundayearly->master_spread}}</b></font></td>
                                         <td>@if($sundayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_underdog}} <font color="green"> <b>+{{$sundayearly->master_spread}}</b></font></td>
@@ -261,6 +292,9 @@
                                 @foreach($sunday_late as $sundylate)
                                     @if($sundylate->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$sundylate->playoff_name}} {{$sundylate->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $sundylate->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                             <td><input type="radio" name="options" id="options1" value="f" @if ($sundylate->pick=='f') checked @endif> @if ($sundylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundylate->master_favorit }} <font color="red"> <b>-{{$sundylate->master_spread}}</b></font></td>
@@ -274,6 +308,9 @@
                                         </tr>
                                         @endif
                                     @if($sundylate->locked == '1')
+                                        <tr>
+                                            <th colspan="3">{{$sundylate->playoff_name}} {{$sundylate->game_type}}</th>
+                                        </tr>
                                     <tr>
                                         <td>@if($sundylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundylate->master_favorit }} <font color="red"> <b>-{{$sundylate->master_spread}}</b></font></td>
                                         <td>@if($sundylate->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundylate->master_underdog}} <font color="green"> <b>+{{$sundylate->master_spread}}</b></font></td>

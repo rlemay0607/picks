@@ -53,7 +53,9 @@ class MasterGameController extends Controller
             'spread' => $request->spread,
             'game_time' => $request->game_time,
             'week_number' =>$settings->week_number,
-            'home_team' => $request->home_team
+            'home_team' => $request->home_team,
+            'playoff_name' => $request->playoff_name,
+            'game_type' => $request->game_type
 
         ])
         ;
@@ -102,17 +104,21 @@ class MasterGameController extends Controller
         $game->underdog = $request->underdog;
         $game->game_time = $request->game_time;
         $game->home_team = $request->home_team;
+        $game->playoff_name = $request->playoff_name;
+        $game->game_type = $request->game_type;
 
         $game->save();
         $userpicks =  UserPicks::where('master_game_id', '=', $game->id)->get();
         foreach ($userpicks as $userpick)
             ([
                 $userpick->master_favorit = $request->favorit,
-            $userpick->master_spread = $request->spread,
-            $userpick->master_underdog = $request->underdog,
-            $userpick->game_time = $request->game_time,
-            $userpick->home_team = $request->home_team,
-        $userpick->save()
+                $userpick->master_spread = $request->spread,
+                $userpick->master_underdog = $request->underdog,
+                $userpick->game_time = $request->game_time,
+                $userpick->home_team = $request->home_team,
+                $userpick->game_type = $request->game_type,
+                $userpick->playoff_name = $request->playoff_name,
+                $userpick->save()
         ]);
         return redirect()->route('mastergame.index');
     }
