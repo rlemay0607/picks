@@ -74,7 +74,7 @@
                                     <td>
                                     <div>
                                         <div>
-                                           @if($saturdayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif <font color="red"> <b>-{{$saturdayearly->master_spread}}</b></font>
+                                           @if($saturdayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($saturdayearly->home_team != 'none')<font color="red"> <b>-@endif{{$saturdayearly->master_spread}}</b></font>
                                         </div>
                                         <div>
                                             <div class="row">
@@ -99,8 +99,8 @@
                                                <tr>
                                        <td>
                                        @if ($saturdayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
-                                       @if($saturdayearly->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif
-                                       <font color="green"> <b>+{{$saturdayearly->master_spread}}</b></font>
+                                       @if($saturdayearly->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdayearly->home_team != 'none')
+                                       <font color="green"> <b>+@endif{{$saturdayearly->master_spread}}</b></font>
                                        </td>
                                    </tr>
                                    </table>
@@ -109,7 +109,7 @@
                                                <div class="row">
                                                    <div class="col-xs-12  col-sm-8">
                                                        <div>
-                                                          {{ $saturdayearly->master_favorit }}
+                                                          {{ $saturdayearly->master_underdog }}
                                                        </div>
                                                        <div>
                                                            {{number_format((\App\UserPicks::where([['master_game_id',$saturdayearly->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$saturdayearly->master_game_id)->count() )*100),2}}% User Picked
@@ -136,12 +136,58 @@
                                         <th colspan="3">{{$saturdaylate->playoff_name}} {{$saturdaylate->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($saturdaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($saturdaylate->home_team != 'none')<font color="red"> <b>-@endif{{$saturdaylate->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $saturdaylate->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$saturdaylate->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaylate->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($saturdaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaylate->master_favorit }} <font color="red"> <b>-{{$saturdaylate->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$saturdaylate->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaylate->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($saturdaylate->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaylate->master_underdog}} <font color="green"> <b>+{{$saturdaylate->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$saturdaylate->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaylate->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($saturdaylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($saturdaylate->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaylate->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$saturdaylate->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $saturdaylate->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$saturdaylate->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaylate->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($saturdaylate->game_scored == '1')@if($saturdaylate->point == '1')<font color="green">Win</font>@endif @if($saturdaylate->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
@@ -155,34 +201,128 @@
                                         <th colspan="3">{{$saturdaynight->playoff_name}} {{$saturdaynight->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($saturdaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($saturdaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($saturdaynight->home_team != 'none')<font color="red"> <b>-@endif{{$saturdaynight->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $saturdaynight->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$saturdaynight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($saturdaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaynight->master_favorit }} <font color="red"> <b>-{{$saturdaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$saturdanight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaynight->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($saturdaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $saturdaynight->master_underdog}} <font color="green"> <b>+{{$saturdaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$saturdaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaynight->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($saturdaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($saturdaynight->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($saturdaynight->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$saturdaynight->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $saturdaynight->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$saturdaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$saturdaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($saturdaynight->game_scored == '1')@if($saturdaynight->point == '1')<font color="green">Win</font>@endif @if($saturdaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
 
+
                             @if($sunday_morning_count>0)
                                 <tr bgcolor="#d3d3d3">
-                                    <th colspan="3">Saturday Late Games</th>
+                                    <th colspan="3">Sunday Morning Games</th>
                                 </tr>
                                 @foreach($sunday_morning as $sundaymorning)
                                     <tr>
                                         <th colspan="3">{{$sundaymorning->playoff_name}} {{$sundaymorning->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($sundaymorning->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaymorning->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($sundaymorning->home_team != 'none')<font color="red"> <b>-@endif{{$sundaymorning->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaymorning->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaymorning->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaymorning->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($sundaymorning->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaymorning->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaymorning->master_favorit }} <font color="red"> <b>-{{$sundaymorning->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaymorning->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaymorning->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($sundaymorning->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaymorning->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaymorning->master_underdog}} <font color="green"> <b>+{{$sundaymorning->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaymorning->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaymorning->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($sundaymorning->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($sundaymorning->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaymorning->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$sundaymorning->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaymorning->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaymorning->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaymorning->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($sundaymorning->game_scored == '1')@if($sundaymorning->point == '1')<font color="green">Win</font>@endif @if($sundaymorning->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
+
 
 
                             @if($sunday_early_count>0)
@@ -194,15 +334,62 @@
                                         <th colspan="3">{{$sundayearly->playoff_name}} {{$sundayearly->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($sundayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($sundayearly->home_team != 'none')<font color="red"> <b>-@endif{{$sundayearly->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundayearly->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundayearly->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundayearly->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($sundayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_favorit }} <font color="red"> <b>-{{$sundayearly->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundayearly->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundayearly->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($sundayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_underdog}} <font color="green"> <b>+{{$sundayearly->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundayearly->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundayearly->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($sundayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($sundayearly->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundayearly->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$sundayearly->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundayearly->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundayearly->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundayearly->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($sundayearly->game_scored == '1')@if($sundayearly->point == '1')<font color="green">Win</font>@endif @if($sundayearly->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
+
 
                             @if($sunday_late_count>0)
                                 <tr bgcolor="#d3d3d3">
@@ -213,15 +400,62 @@
                                         <th colspan="3">{{$sundaylate->playoff_name}} {{$sundaylate->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($sundaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($sundaylate->home_team != 'none')<font color="red"> <b>-@endif{{$sundaylate->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaylate->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaylate->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaylate->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($sundaylate->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaylate->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaylate->master_favorit }} <font color="red"> <b>-{{$sundaylate->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaylate->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaylate->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($sundaylate->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaylate->master_underdog}} <font color="green"> <b>+{{$sundaylate->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaylate->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaylate->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($sundaylate->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($sundaylate->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaylate->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$sundaylate->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaylate->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaylate->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaylate->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($sundaylate->game_scored == '1')@if($sundaylate->point == '1')<font color="green">Win</font>@endif @if($sundaylate->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
+
 
 
                             @if($sunday_night_count>0)
@@ -233,15 +467,63 @@
                                         <th colspan="3">{{$sundaynight->playoff_name}} {{$sundaynight->game_type}}</th>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($sundaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($sundaynight->home_team != 'none')<font color="red"> <b>-@endif{{$sundaynight->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaynight->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaynight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($sundaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_favorit }} <font color="red"> <b>-{{$sundaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaynight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$sundaynight->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($sundaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_underdog}} <font color="green"> <b>+{{$sundaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$sundaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaynight->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($sundaynight->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($sundaynight->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$sundaynight->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $sundaynight->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$sundaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$sundaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($sundaynight->game_scored == '1')@if($sundaynight->point == '1')<font color="green">Win</font>@endif @if($sundaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
+
+
 
                             @if($monday_night_count>0)
                                 <tr bgcolor="#d3d3d3">
@@ -249,15 +531,65 @@
                                 </tr>
                                 @foreach($monday_night as $mondaynight)
                                     <tr>
+                                        <th colspan="3">{{$mondaynight->playoff_name}} {{$mondaynight->game_type}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($mondaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($mondaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($mondaynight->home_team != 'none')<font color="red"> <b>-@endif{{$mondaynight->master_spread}}</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $mondaynight->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$mondaynight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$mondaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
 
-                                        <td>@if($mondaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($mondaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $mondaynight->master_favorit }} <font color="red"> <b>-{{$mondaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$mondaynight->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$mondaynight->master_game_id)->count() )*100),2}}% User Picked</td>
-                                        <td>@if($mondaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($mondaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $mondaynight->master_underdog}} <font color="green"> <b>+{{$mondaynight->master_spread}}</b></font></br>{{number_format((\App\UserPicks::where([['master_game_id',$mondaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$mondaynight->master_game_id)->count() )*100),2}}% User Picked</td>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($mondaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($mondaynight->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($mondaynight->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif{{$mondaynight->master_spread}}</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $mondaynight->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$mondaynight->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$mondaynight->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                         <td>@if($mondaynight->game_scored == '1')@if($mondaynight->point == '1')<font color="green">Win</font>@endif @if($mondaynight->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif
+
 
                             </tbody>
                         </table>
