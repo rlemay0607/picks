@@ -271,6 +271,7 @@
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="home_team">
                                     <option value="f">Favorit</option>
                                     <option value="u">Underdog</option>
+                                    <option value="none">None</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -320,8 +321,8 @@
                             @foreach($games as $game)
                                 <tr>
                                     <td>{{$game->week_number}}</td>
-                                    <td>@if($game->winner == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->favorit }} <font color="red"> <b>-{{$game->spread}}</b></font></td>
-                                    <td>@if($game->winner == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->underdog }} <font color="green"> <b>+{{$game->spread}}</b></font></td>
+                                    <td>@if($game->winner == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->favorit }} @if($game->favorit =='Over')<b>{{$game->spread}}</b>@endif @if($game->favorit !='Over')<font color="red"> <b>-{{$game->spread}}</b></font>@endif</td>
+                                    <td>@if($game->winner == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif @if ($game->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $game->underdog }} @if($game->underdog == 'Under') <b>{{$game->spread}}</b>@endif @if($game->underdog !='Under')<font color="green"> <b>+{{$game->spread}}</b></font>@endif</td>
                                     <td>{{$game->playoff_name}}</td>
                                     <td>{{$game->game_time}}</td>
                                     <td>@if($game->scored =='0')
