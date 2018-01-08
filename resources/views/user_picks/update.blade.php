@@ -275,7 +275,7 @@
                                         </tr>
                                     <tr>
                                         <td>@if($sundayearly->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_favorit }} @if($sundayearly->home_team !='none') <font color="red"> <b>- @endif{{$sundayearly->master_spread}}</b></font></td>
-                                        <td>@if($sundayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_underdog}} @if($sundayearly->home_team !='none') <font color="green"> <b>+{ @endif{$sundayearly->master_spread}}</b></font></td>
+                                        <td>@if($sundayearly->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundayearly->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundayearly->master_underdog}} @if($sundayearly->home_team !='none') <font color="green"> <b>+ @endif{{$sundayearly->master_spread}}</b></font></td>
                                         <td>@if($sundayearly->game_scored == '1')@if($sundayearly->point == '1')<font color="green">Win</font>@endif @if($sundayearly->point == '0')<font color="red">Loss</font>@endif @endif
                                         </td>
 
