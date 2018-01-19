@@ -332,26 +332,33 @@
                                 @foreach($sunday_night as $sundaynight)
                                     @if($sundaynight->locked != '1')
                                         <tr>
+                                            <th colspan="3">{{$sundaynight->playoff_name}} {{$sundaynight->game_type}}</th>
+                                        </tr>
+                                        <tr>
                                             <form action="{{ route('user.pick.update', ['id' => $sundaynight->id]) }}" method="post" enctype="multipart/form-data">
                                                 {{csrf_field()}}
-                                            <td><input type="radio" name="options" id="options1" value="f" @if ($sundaynight->pick=='f') checked @endif> @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_favorit }} @if($sundaynight->home_team !='none')<font color="red"> <b>-@endif{{$sundaynight->master_spread}}</b></font></td>
-                                            <td><input type="radio" name="options" id="options2" value="u" @if ($sundaynight->pick=='u') checked @endif>  @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_underdog}} @if($sundaynight->home_team !='none')<font color="green"> <b>+@endif{{$sundaynight->master_spread}}</b></font></td>
-                                            <td><button class="btn btn-sm btn-success" type="submit">
-                                                    Update Pick
-                                                </button>
-                                            </td>
+                                                <td><input type="radio" name="options" id="options1" value="f" @if ($sundaynight->pick=='f') checked @endif> @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_favorit }} @if($sundaynight->home_team !='none') <font color="red"> <b>-@endif{{$sundaynight->master_spread}}</b></font></td>
+                                                <td><input type="radio" name="options" id="options2" value="u" @if ($sundaynight->pick=='u') checked @endif>  @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_underdog}} @if($sundaynight->home_team !='none') <font color="green"> <b>+ @endif{{$sundaynight->master_spread}}</b></font></td>
+                                                <td><button class="btn btn-sm btn-success" type="submit">
+                                                        Update Pick
+                                                    </button>
+                                                </td>
                                             </form>
 
                                         </tr>
+                                        </tr>
                                         @endif
                                     @if($sundaynight->locked == '1')
-                                    <tr>
-                                        <td>@if($sundaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_favorit }} @if($sundaynight->home_team !='none')<font color="red"> <b>-@endif{{$sundaynight->master_spread}}</b></font></td>
-                                        <td>@if($sundaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_underdog}} @if($sundaynight->home_team !='none') <font color="green"> <b>+@endif{{$sundaynight->master_spread}}</b></font></td>
-                                        <td>@if($sundaynight->game_scored == '1')@if($sundaynight->point == '1')<font color="green">Win</font>@endif @if($sundaynight->point == '0')<font color="red">Loss</font>@endif @endif
-                                        </td>
+                                        <tr>
+                                            <th colspan="3">{{$sundaynight->playoff_name}} {{$sundaynight->game_type}}</th>
+                                        </tr>
+                                        <tr>
+                                            <td>@if($sundaynight->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaynight->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_favorit }} @if($sundaynight->home_team !='none') <font color="red"> <b>-@endif{{$sundaynight->master_spread}}</b></font></td>
+                                            <td>@if($sundaynight->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($sundaynight->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $sundaynight->master_underdog}} @if($sundaynight->home_team !='none') <font color="green"> <b>+@endif{{$sundaynight->master_spread}}</b></font></td>
+                                            <td>@if($sundaynight->game_scored == '1')@if($sundaynight->point == '1')<font color="green">Win</font>@endif @if($sundaynight->point == '0')<font color="red">Loss</font>@endif @endif
+                                            </td>
 
-                                    </tr>
+                                        </tr>
                                     @endif
                         @endforeach
 
