@@ -122,6 +122,7 @@
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Spread</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="spread">
+                                   <option value="0">None</option>
                                     <option value="0.5">0.5</option>
                                     <option value="1.5">1.5</option>
                                     <option value="2.5">2.5</option>
