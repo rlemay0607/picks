@@ -104,6 +104,7 @@
 
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Spread</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="spread">
+                                    <option value="0">None</option>
                                     <option value="0.5" @if ($game->spread=='0.5') selected @endif>0.5</option>
                                     <option value="1.5" @if ($game->spread=='1.5') selected @endif>1.5</option>
                                     <option value="2.5" @if ($game->spread=='2.5') selected @endif>2.5</option>
