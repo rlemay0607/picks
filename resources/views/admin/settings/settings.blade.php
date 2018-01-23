@@ -58,6 +58,23 @@
                 {{csrf_field()}}
 
                 <div class="form-group">
+                    <label class="mr-sm-2" for="inlineFormCustomSelect">Year</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="year">
+
+                        <option value="2017" @if ($settings->year=='2017') selected @endif>2017</option>
+                        <option value="2018" @if ($settings->year=='2018') selected @endif>2018</option>
+                        <option value="2019" @if ($settings->year=='2019') selected @endif>2019</option>
+                        <option value="2020" @if ($settings->year=='2020') selected @endif>2020</option>
+                        <option value="2021" @if ($settings->year=='2021') selected @endif>2021</option>
+                        <option value="2022" @if ($settings->year=='2022') selected @endif>2022</option>
+                        <option value="2023" @if ($settings->year=='2023') selected @endif>2023</option>
+                        <option value="2024" @if ($settings->year=='2024') selected @endif>2024</option>
+                        <option value="2025" @if ($settings->year=='2025') selected @endif>2025</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label class="mr-sm-2" for="inlineFormCustomSelect">Week</label>
                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="week_number">
 
@@ -133,6 +150,21 @@ Show Message
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="show_message" id="options2" value="1" @if ($settings->show_message=='1') checked @endif>
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+Season Payout
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="season_payout" id="options1" value="0" @if ($settings->season_payout=='0') checked @endif>
+                                    No
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="season_payout" id="options2" value="1" @if ($settings->season_payout=='1') checked @endif>
                                     Yes
                                 </label>
                             </div>

@@ -123,6 +123,7 @@
                     </div>
                 </div>
             </div>
+            @if($settings->season_payout == "0")
             <div class="sidebar  boxed  push-down-30">
                 <div class="row">
 
@@ -164,6 +165,86 @@
                     </div>
                 </div>
             </div>
+                @endif
+
+            @if($settings->season_payout == "1")
+                <div class="sidebar  boxed  push-down-30">
+                    <div class="row">
+
+                        <div class="col-xs-10  col-xs-offset-1">
+                            <div class="text-center">
+                                <h4>End of Year Payout</h4>
+                            </div>
+                            <table class="table" >
+                                <thead>
+                                <tr>
+
+                                    <th>Team Name</th>
+                                    <th>Total Points</th>
+                                    <th>Place</th>
+                                    <th>Pay Out</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>Blue Crush</td>
+                                        <td>165</td>
+                                        <td>1st</td>
+                                        <td>$400</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>Steelman38</td>
+                                        <td>157</td>
+                                        <td>2nd</td>
+                                        <td>$300</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>TitansElite</td>
+                                        <td>157</td>
+                                        <td>2nd</td>
+                                        <td>$300</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>CarolynFranzese</td>
+                                        <td>151</td>
+                                        <td>4th</td>
+                                        <td>$200</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>The Notorious M.A.T.</td>
+                                        <td>150</td>
+                                        <td>5th</td>
+                                        <td>$125</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>coyboys2017</td>
+                                        <td>150</td>
+                                        <td>Last</td>
+                                        <td>$100</td>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            @endif
+
 
         </div>
 
