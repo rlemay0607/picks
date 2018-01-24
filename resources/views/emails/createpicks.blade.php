@@ -1,14 +1,15 @@
 @component('mail::message', ['user' => $user])
-# Weeks {{$settings->week_number}} picks are available
+Super Bowl picks are available
 
 
-We have released week {{$settings->week_number}} picks.  Remember you have up to kick off to make changes to your picks.
+We have released week the Super Bowl picks.  We will be paying out $500 to the winners this week.
 
 
 
 
 @component('mail::button', ['url' => 'http://sports-now.org/picks/currentweek'])
-    Enter Week {{$settings->week_number}} Picks
+
+    Enter Week Super Bowl Picks
     @endcomponent
 
 @endcomponent
