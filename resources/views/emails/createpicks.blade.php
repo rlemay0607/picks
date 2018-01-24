@@ -9,7 +9,7 @@ We have released week the Super Bowl picks.  We will be paying out $500 to the w
 
 @component('mail::button', ['url' => 'http://sports-now.org/picks/currentweek'])
 
-    Enter Week Super Bowl Picks
+    Enter Super Bowl Picks
     @endcomponent
 
 @endcomponent
