@@ -86,7 +86,49 @@
                             </thead>
                             <tbody>
 
-<!-- Saturday Early -->
+                            <!-- Super Bowl -->
+
+                            @if($super_bowl_count>0)
+                                <tr bgcolor="#d3d3d3">
+                                    <th colspan="3">Super Bowl</th>
+                                </tr>
+                            @endif
+                            @foreach($super_bowl as $superbowl)
+                                @if($superbowl->locked != '1')
+                                    <tr>
+                                        <th colspan="3">{{$superbowl->game_type}}</th>
+                                    </tr>
+
+                                    <tr>
+                                        <form action="{{ route('user.pick.update', ['id' => $superbowl->id]) }}" method="post" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <td><input type="radio" name="options" id="options1" value="f" @if ($superbowl->pick=='f') checked @endif> @if ($superbowl->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif{{ $superbowl->master_favorit }} @if($superbowl->home_team !='none') <font color="red"> <b>-@endif @if($superbowl->master_spread != '0'){{$superbowl->master_spread}}@endif</b></font></td>
+                                            <td><input type="radio" name="options" id="options2" value="u" @if ($superbowl->pick=='u') checked @endif> @if ($superbowl->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $superbowl->master_underdog}} @if($superbowl->home_team !='none') <font color="green"> <b>+@endif @if($superbowl->master_spread != '0'){{$superbowl->master_spread}} @endif</b></font></td>
+                                            <td><button class="btn btn-sm btn-success" type="submit">
+                                                    Update Pick
+                                                </button>
+                                            </td>
+                                        </form>
+
+                                    </tr>
+                                @endif
+                                @if($superbowl->locked == '1')
+                                    <tr>
+                                        <th colspan="3">{{$superbowl->playoff_name}} {{$superbowl->game_type}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>@if($superbowl->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($superbowl->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif  {{ $superbowl->master_favorit }} @if($superbowl->home_team !='none')<font color="red"> <b>-@endif @if($superbowl->master_spread != '0'){{$superbowl->master_spread}} @endif</b></font></td>
+                                        <td>@if($superbowl->pick == 'u')<font color="green"><span class="glyphicon glyphicon-check"></span></font>@endif  @if ($superbowl->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif{{ $superbowl->master_underdog}} @if($superbowl->home_team !='none') <font color="green"> <b>+@endif @if($superbowl->master_spread != '0') {{$superbowl->master_spread}} @endif</b></font></td>
+                                        <td>@if($superbowl->game_scored == '1')@if($superbowl->point == '1')<font color="green">Win</font>@endif @if($superbowl->point == '0')<font color="red">Loss</font>@endif @endif
+                                        </td>
+
+                                    </tr>
+                                @endif
+                            @endforeach
+
+
+
+                            <!-- Saturday Early -->
 
                             @if($saturday_early_count>0)
                                 <tr bgcolor="#d3d3d3">

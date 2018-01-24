@@ -660,6 +660,9 @@ public function week21()
             ->with('monday_night', DB::table('user_picks')->where([['week_number', '21'],['user_id',  Auth::User()->id], ['game_time', 'monday_night']])->get())
             ->with('monday_night_count', DB::table('user_picks')->where([['week_number', '21'], ['game_time', 'monday_night']])->count())
 
+            ->with('super_bowl', DB::table('user_picks')->where([['week_number', '21'],['user_id',  Auth::User()->id], ['game_time', 'super_bowl']])->get())
+            ->with('super_bowl_count', DB::table('user_picks')->where([['week_number', '21'], ['game_time', 'super_bowl']])->count())
+
 
             ;
     }
@@ -689,6 +692,10 @@ public function curentweek()
 
             ->with('monday_night', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'monday_night']])->get())
             ->with('monday_night_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'monday_night']])->count())
+
+            ->with('super_bowl', DB::table('user_picks')->where([['week_number', $settings->week_number],['user_id',  Auth::User()->id], ['game_time', 'super_bowl']])->get())
+            ->with('super_bowl_count', DB::table('user_picks')->where([['week_number', $settings->week_number], ['game_time', 'super_bowl']])->count())
+
 
 
             ;
@@ -875,6 +882,10 @@ public function curentweek()
 
             ->with('monday_night', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'monday_night']])->get())
             ->with('monday_night_count', DB::table('user_picks')->where([['week_number', $setting->week_number], ['game_time', 'monday_night']])->count())
+
+            ->with('super_bowl', DB::table('user_picks')->where([['week_number', $setting->week_number],['user_id', $user->id], ['locked', '1'],['game_time', 'super_bowl']])->get())
+            ->with('super_bowl_count', DB::table('user_picks')->where([['week_number', $setting->week_number], ['game_time', 'super_bowl']])->count())
+
             ;
     }
 

@@ -62,6 +62,74 @@
                             </thead>
                             <tbody>
 
+                            @if($super_bowl_count>0)
+                                <tr bgcolor="#d3d3d3">
+                                    <th colspan="3">Super Bowl</th>
+                                </tr>
+                                @foreach($super_bowl as $superbowl)
+                                    <tr>
+                                        <th colspan="3">{{$superbowl->game_type}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    @if($superbowl->pick == 'f')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif  @if ($superbowl->home_team=='f') <span class="glyphicon glyphicon-home"></span> @endif @if ($superbowl->home_team != 'none')<font color="red"> <b>-@endif @if($superbowl->master_spread != '0'){{$superbowl->master_spread}} @endif</b></font>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $superbowl->master_favorit }}
+                                                            </div>
+                                                            <div >
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$superbowl->master_game_id],['pick','f']])->count())/ (\App\UserPicks::where('master_game_id',$superbowl->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                @if ($superbowl->home_team=='u') <span class="glyphicon glyphicon-home"></span> @endif
+                                                                @if($superbowl->pick == 'u')<font color="green"> <span class="glyphicon glyphicon-check"></span></font>@endif @if ($superbowl->home_team != 'none')
+                                                                    <font color="green"> <b>+@endif @if($superbowl->master_spread !='0'){{$superbowl->master_spread}}@endif</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12  col-sm-8">
+                                                            <div>
+                                                                {{ $superbowl->master_underdog }}
+                                                            </div>
+                                                            <div>
+                                                                {{number_format((\App\UserPicks::where([['master_game_id',$superbowl->master_game_id],['pick','u']])->count())/ (\App\UserPicks::where('master_game_id',$superbowl->master_game_id)->count() )*100),2}}% User Picked
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                        <td>@if($superbowl->game_scored == '1')@if($superbowl->point == '1')<font color="green">Win</font>@endif @if($superbowl->point == '0')<font color="red">Loss</font>@endif @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+
+
+
                             @if($saturday_early_count>0)
                                 <tr bgcolor="#d3d3d3">
                                     <th colspan="3">Saturday Early Games</th>

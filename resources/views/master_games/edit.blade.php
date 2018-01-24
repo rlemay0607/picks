@@ -64,6 +64,7 @@
 
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Favorit</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="favorit">
+                                    <option value="Heads" @if ($game->favorit=="Heds") selected @endif>Heads</option>
                                     <option value="Over" @if ($game->favorit=="Over") selected @endif>Over</option>
                                     <option value="Arizona Cardinals" @if ($game->favorit=='Arizona Cardinals') selected @endif>Arizona Cardinals</option>
                                     <option value="Atlanata Falcon"@if ($game->favorit=='Atlanata Falcon') selected @endif>Atlanata Falcons</option>
@@ -211,6 +212,7 @@
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
+                                    <option value="Tails" @if ($game->underdog=="Tails") selected @endif>Tails</option>
                                     <option value="Under" @if ($game->underdog=="Over") selected @endif>Under</option>
                                     <option value="Arizona Cardinals" @if ($game->underdog=='Arizona Cardinals') selected @endif>Arizona Cardinals</option>
                                     <option value="Atlanata Falcon"@if ($game->underdog=='Atlanata Falcon') selected @endif>Atlanata Falcons</option>
@@ -267,6 +269,7 @@
                                     <option value="sunday_late"@if ($game->game_time=='sunday_late') selected @endif>Sunday Late Game</option>
                                     <option value="sunday_night"@if ($game->game_time=='sunday_night') selected @endif>Sunday Night Game</option>
                                     <option value="monday_night"@if ($game->game_time=='monday_night') selected @endif>Monday Night Game</option>
+                                    <option value="super_bowl" @if ($game->game_time=='super_bowl') selected @endif>Super Bowl</option>
 
                                 </select>
                             </div>

@@ -82,6 +82,7 @@
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Favorit</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="favorit">
+                                    <option value="Heads">Heads</option>
                                     <option value="Over">Over</option>
                                     <option value="Arizona Cardinals">Arizona Cardinals</option>
                                     <option value="Atlanata Falcon">Atlanata Falcons</option>
@@ -230,6 +231,7 @@
                             <div class="form-group">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Underdog</label>
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="underdog">
+                                    <option value="Tails">Tails</option>
                                     <option value="Under">Under</option>
                                     <option value="Arizona Cardinals">Arizona Cardinals</option>
                                     <option value="Atlanata Falcon">Atlanata Falcons</option>
@@ -288,6 +290,7 @@
                                     <option value="sunday_late">Sunday Late Game</option>
                                     <option value="sunday_night">Sunday Night Game</option>
                                     <option value="monday_night">Monday Night Game</option>
+                                    <option value="super_bowl">Super Bowl</option>
 
                                 </select>
                             </div>
