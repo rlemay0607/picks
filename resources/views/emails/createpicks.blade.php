@@ -2,7 +2,7 @@
 Super Bowl picks are available
 
 
-We have released week the Super Bowl picks.  We will be paying out $500 to the winners this week.
+We have released the Super Bowl picks.  We will be paying out $500 to the winner(s).
 
 
 
