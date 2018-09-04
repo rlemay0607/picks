@@ -27,6 +27,11 @@ class SettingsController extends Controller
         return view('payment');
     }
 
+    public function reset()
+    {
+        return view('admin.reset');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

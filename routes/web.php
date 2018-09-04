@@ -258,6 +258,11 @@ Route::get('/weekly/winners',[
         'uses' => 'SettingsController@payments',
         'as' => 'payment'
     ]);
+
+    Route::get('reset/league', [
+        'uses' => 'SettingsController@reset',
+        'as' => 'reset.league'
+    ])->middleware('admin');
 });
 
 Auth::routes();

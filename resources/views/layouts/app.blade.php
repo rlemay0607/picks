@@ -78,6 +78,7 @@
                                         <li>
                                             <a href="{{route('admin.user.pick')}}">User Picks </a>
                                         </li>
+
                                         <li>
                                             <a href="{{ route('create.sheet') }}"
                                                onclick="event.preventDefault();
@@ -88,6 +89,9 @@
                                             <form id="create-sheet" action="{{ route('create.sheet') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('reset.league')}}">Reset League</a>
                                         </li>
 
                                     </ul>

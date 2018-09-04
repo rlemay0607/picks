@@ -1,15 +1,12 @@
 @component('mail::message', ['user' => $user])
-Super Bowl picks are available
-
-
-We have released the Super Bowl picks.  We will be paying out $500 to the winner(s).
+This weeks picks are availble
 
 
 
 
 @component('mail::button', ['url' => 'http://sports-now.org/picks/currentweek'])
 
-    Enter Super Bowl Picks
+    Enter your picks
     @endcomponent
 
 @endcomponent
