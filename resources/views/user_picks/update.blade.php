@@ -91,7 +91,7 @@
 
                             <!-- Saturday Early -->
 
-                            @if($saturday_early_count>0)
+                            @if($saturday_early_count>0 || $saturday_early_count !="")
                                 <tr bgcolor="#d3d3d3">
                                     <th colspan="3">Saturday Early Games</th>
                                 </tr>
