@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Tag;
+use Illuminate\Http\Request;
 use Session;
 
 class TagsController extends Controller
