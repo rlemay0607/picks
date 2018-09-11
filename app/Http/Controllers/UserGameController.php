@@ -59,12 +59,6 @@ class UserGameController extends Controller
         return view('user_picks.update')
             ->with('team_name', User::where('id', Auth::User())->first())
             ->with('games', DB::table('user_picks')->where([['week_number', '1'],['user_id', Auth::User()->id]])->get())
-            ->with('saturday_early', DB::table('user_picks')->where([['week_number', '1'],['user_id',  Auth::User()->id], ['game_time', 'saturday_early']])->get())
-            ->with('saturday_early_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'saturday_early']])->count())
-            ->with('saturday_late', DB::table('user_picks')->where([['week_number', '1'],['user_id',  Auth::User()->id], ['game_time', 'saturday_late']])->get())
-            ->with('saturday_late_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'saturday_late']])->count())
-            ->with('saturday_night', DB::table('user_picks')->where([['week_number', '1'],['user_id',  Auth::User()->id],['game_time', 'saturday_night']])->get())
-            ->with('saturday_night_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'saturday_night']])->count())
 
             ->with('sunday_early', DB::table('user_picks')->where([['week_number', '1'],['user_id',  Auth::User()->id],['game_time', 'sunday_early']])->get())
             ->with('sunday_early_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'sunday_early']])->count())
