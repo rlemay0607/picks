@@ -69,6 +69,12 @@ class UserGameController extends Controller
             ->with('sunday_morning_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'sunday_morning']])->count())
             ->with('monday_night', DB::table('user_picks')->where([['week_number', '1'],['user_id',  Auth::User()->id], ['game_time', 'monday_night']])->get())
             ->with('monday_night_count', DB::table('user_picks')->where([['week_number', '1'], ['game_time', 'monday_night']])->count())
+            ->with('saturday_early', DB::table('user_picks')->where([['week_number', '2'],['user_id',  Auth::User()->id], ['game_time', 'saturday_early']])->get())
+            ->with('saturday_early_count', DB::table('user_picks')->where([['week_number', '2'], ['game_time', 'saturday_early']])->count())
+            ->with('saturday_late', DB::table('user_picks')->where([['week_number', '2'],['user_id',  Auth::User()->id], ['game_time', 'saturday_late']])->get())
+            ->with('saturday_late_count', DB::table('user_picks')->where([['week_number', '2'], ['game_time', 'saturday_late']])->count())
+            ->with('saturday_night', DB::table('user_picks')->where([['week_number', '2'],['user_id',  Auth::User()->id],['game_time', 'saturday_night']])->get())
+            ->with('saturday_night_count', DB::table('user_picks')->where([['week_number', '2'], ['game_time', 'saturday_night']])->count())
 
 
             ;
