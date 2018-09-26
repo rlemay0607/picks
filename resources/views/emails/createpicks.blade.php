@@ -4,7 +4,7 @@ This weeks picks are availble
 
 
 
-@component('mail::button', ['url' => 'http://sports-now.org/picks/currentweek'])
+@component('mail::button', ['url' => 'http://sports-now.org'])
 
     Enter your picks
     @endcomponent
