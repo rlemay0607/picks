@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
             ->sundays()->at('13:00')->timezone('America/New_York');
 
         $schedule->command('LockMondayNightGames:lockmonnight')
-            ->mondays()->at('20:30')->timezone('America/New_York');
+            ->mondays()->at('20:15')->timezone('America/New_York');
 
         $schedule->command('LockSundayLateGames:locksunlate')
             ->sundays()->at('16:00')->timezone('America/New_York');
@@ -47,7 +47,7 @@ class Kernel extends ConsoleKernel
             ->sundays()->at('09:30')->timezone('America/New_York');
 
         $schedule->command('LockSundayNightGames:locksunnight')
-            ->sundays()->at('20:30')->timezone('America/New_York');
+            ->sundays()->at('20:20')->timezone('America/New_York');
         // $schedule->command('PaymentReminder:sendreminder')
         //   ->tuesdays()->at('06:00')->timezone('America/New_York');
         //
