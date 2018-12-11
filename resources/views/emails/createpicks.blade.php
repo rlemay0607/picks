@@ -1,5 +1,5 @@
 @component('mail::message', ['user' => $user])
-This weeks picks are availble
+This weeks picks are available. <b>Don't forget that there is Saturday games this week</b>
 
 
 
