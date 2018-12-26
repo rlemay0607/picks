@@ -1,5 +1,5 @@
 @component('mail::message', ['user' => $user])
-This weeks picks are available. <b>Don't forget that there is Saturday games this week</b>
+This weeks picks are available. <b>Just because this is the last week for the NFL regular season doesn't mean we are over.  The league will go until the NFC and AFC teams are crowned.</b>
 
 
 
