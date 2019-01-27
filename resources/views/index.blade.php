@@ -190,51 +190,29 @@
                                     <tr>
 
                                         <td>Blue Crush</td>
-                                        <td>165</td>
+                                        <td>164</td>
                                         <td>1st</td>
                                         <td>$400</td>
 
                                     </tr>
                                     <tr>
 
-                                        <td>Steelman38</td>
-                                        <td>157</td>
+                                        <td>GoNotreDame</td>
+                                        <td>160</td>
                                         <td>2nd</td>
-                                        <td>$300</td>
+                                        <td>$250</td>
 
                                     </tr>
                                     <tr>
 
-                                        <td>TitansElite</td>
-                                        <td>157</td>
-                                        <td>2nd</td>
-                                        <td>$300</td>
+                                        <td>Green Bay With Envy</td>
+                                        <td>155</td>
+                                        <td>3rd</td>
+                                        <td>$150</td>
 
                                     </tr>
-                                    <tr>
 
-                                        <td>CarolynFranzese</td>
-                                        <td>151</td>
-                                        <td>4th</td>
-                                        <td>$200</td>
 
-                                    </tr>
-                                    <tr>
-
-                                        <td>The Notorious M.A.T.</td>
-                                        <td>150</td>
-                                        <td>5th</td>
-                                        <td>$125</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>coyboys2017</td>
-                                        <td>150</td>
-                                        <td>Last</td>
-                                        <td>$100</td>
-
-                                    </tr>
 
 
                                 </tbody>
