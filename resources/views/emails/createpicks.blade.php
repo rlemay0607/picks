@@ -1,5 +1,5 @@
 @component('mail::message', ['user' => $user])
-    This weeks picks are available. <b>This is the last week to earn points for the season total.</b>
+    <b>Super Bowl Picks are available</b>
 
 
 
